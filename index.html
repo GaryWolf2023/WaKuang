@@ -1,13 +1,27 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Vite + Vue</title>
+        <meta name="keyword" content="<%= VUE_APP_DESC %>,<%= VUE_APP_KEYWORD %> official website"/>
+        <meta name="description" content=" <%= VUE_APP_DESC2 %>"/>
+        <link href="" rel="canonical"/>
+        <meta property="og:title" content="<%= VUE_APP_KEYWORD %>" class="next-head"/>
+        <meta property="og:site_name" content="<%= VUE_APP_KEYWORD %>" class="next-head"/>
+        <meta property="og:image" content="<%= VUE_APP_OSSURL %>/images/applogo.png" class="next-head"/>
+        <meta property="twitter:title" content=" <%= VUE_APP_KEYWORD %>" class="next-head"/>
+        <meta property="twitter:site" content="<%= VUE_APP_KEYWORD %>" class="next-head"/>
+        <meta property="twitter:image" content="<%= VUE_APP_OSSURL %>/images/applogo.png" class="next-head"/>
+        <meta property="twitter:image:src" content="<%= VUE_APP_OSSURL %>/images/applogo.png" class="next-head"/>
+        <meta property="twitter:card" content="summary_large_image" class="next-head"/>
+        <meta name="robots" content="index" class="next-head"/>
+        <meta property="og:description" content=" <%= VUE_APP_DESC1 %>, <%= VUE_APP_DESC %>" class="next-head"/>
+        <meta property="twitter:description" content="<%= VUE_APP_DESC1 %>, <%= VUE_APP_DESC %>" class="next-head"/>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
