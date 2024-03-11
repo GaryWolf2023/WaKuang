@@ -7,10 +7,12 @@ import "../src/api/config/http.js"
 // develop
 import './style.css'
 import App from './App.vue'
-import {post} from "./api/config/http.js";
+import {i18n} from "./common/utils/i18n.js";
 
-post("", "", {
-    needToken: true
-})
+const app = createApp(App)
 
-createApp(App).mount('#app')
+
+// use vendor
+app.use(i18n)
+
+app.mount('#app')
