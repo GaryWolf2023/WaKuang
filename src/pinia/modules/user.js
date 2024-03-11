@@ -3,7 +3,6 @@ export const useUserStore = defineStore('user',{
    state: () => ({
       userinfo: {},
       token: '',
-
    }),
    actions: {
       async login(form) {
