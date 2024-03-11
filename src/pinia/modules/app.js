@@ -3,9 +3,16 @@ export const useAppStore = defineStore('app', {
     state: () => ({
         showSetting: false,
         showSidebar: true,
-        fullScreen: false,
-        language: 'cn',
-        languageList: [{ 'cn': "简体中文" }],
+        fullScreen: false, //全屏
+        timezone: "", //时区
+        timezone: [], //时区列表
+        language: 'zh_CN',
+        languageList: [
+            { 'zh_CN': "simplified Chinese(简体中文)" },
+            { 'zh_HK': "Chinese Traditional(繁体中文)" },
+            { 'en_GB': "English" },
+            { 'jp_JA': "Japanese"}
+        ],
     }),
     actions: {
         openSetting() {
