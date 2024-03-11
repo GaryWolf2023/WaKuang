@@ -73,7 +73,7 @@ const post = (url, postReqData, configSetting) => {
         method: "post",
         params: postReqData.params,
         data: postReqData.data,
-    }, "test")
+    }, configSetting)
 }
 
 const put = (url, postReqData, configSetting) => {
