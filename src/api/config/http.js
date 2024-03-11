@@ -55,7 +55,6 @@ instance.interceptors.response.use((resp) => {
 })
 
 const baseRequest = (customConfig, setting) => {
-    console.log(handleConfig(customConfig, setting))
     return instance(handleConfig(customConfig, setting))
 }
 
