@@ -1,11 +1,11 @@
 <script setup>
-import layout_imp from "./common/layouts/common/layout_imp.vue";
 </script>
 
 <template>
-  <layout_imp>
-
-  </layout_imp>
+  <div class="Hello World">
+    <router-view>
+    </router-view>
+  </div>
 </template>
 
 <style scoped>
