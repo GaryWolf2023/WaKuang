@@ -829,7 +829,7 @@ vue-i18n@^9.10.1:
 
 vue-router@^4.3.0:
   version "4.3.0"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.3.0.tgz#d5913f27bf68a0a178ee798c3c88be471811a235"
+  resolved "https://registry.npmmirror.com/vue-router/-/vue-router-4.3.0.tgz#d5913f27bf68a0a178ee798c3c88be471811a235"
   integrity sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==
   dependencies:
     "@vue/devtools-api" "^6.5.1"
