@@ -1,23 +1,38 @@
-import * as VueRouter from 'vue-router'
+import * as VueRouter from "vue-router";
 
-import Login from '../pages/auth/login.vue'
-import Register from '../pages/auth/register.vue'
-import Home from '../pages/mining/index.vue'
+import { useUserStore } from "../pinia/modules/user";
 
 const routes = [
-    { path: '/', name: 'home', component:Home },
-    { path: '/login', name: 'login', component: Login },
-    { path: '/register', name: 'login', component: Register },
-]
+    {
+        path: "/",
+        name: "home",
+        component: () => import('../pages/mining/index.vue')
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: () => import('../pages/auth/login.vue')
+    },
+    {
+        path: "/register",
+        name: "login",
+        component: () => import('../pages/auth/register.vue')
+    },
+    {
+      path: "/retrevePassword",
+      name: "retrevePassword",
+      component: () => import('../pages/auth/retrievePassword.vue'),
+    },
+];
 
 const router = VueRouter.createRouter({
   history: VueRouter.createWebHashHistory(),
   routes: routes,
-})
+});
 
 router.beforeEach((to, from) => {
-    console.log(to, from);
-    return true
-  })
+  console.log(to, from);
+  return true;
+});
 
-export default router
+export default router;

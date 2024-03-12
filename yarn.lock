@@ -793,9 +793,9 @@ unplugin@^1.4.0:
     webpack-sources "^3.2.3"
     webpack-virtual-modules "^0.6.1"
 
-vant@^4.8.5:
+vant@4:
   version "4.8.5"
-  resolved "https://registry.yarnpkg.com/vant/-/vant-4.8.5.tgz#35498b6deeee6400fad27aeae34c1609b6227c64"
+  resolved "https://registry.npmmirror.com/vant/-/vant-4.8.5.tgz#35498b6deeee6400fad27aeae34c1609b6227c64"
   integrity sha512-l+gz0oVNn5z/3q2AYGsyi0jvkRb8968rr+bBe3mifV+Szad6LwD1i715LlA3Nrv8PlimQ9ZT8wtkjuKjGkNMGw==
   dependencies:
     "@vant/popperjs" "^1.3.0"
