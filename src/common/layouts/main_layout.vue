@@ -9,6 +9,4 @@
 import Wrapper from "./base/wrapper.vue";
 </script>
 
-<style>
-
-</style>
+<style></style>
