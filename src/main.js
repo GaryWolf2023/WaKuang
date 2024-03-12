@@ -11,11 +11,12 @@ import App from './App.vue'
 import { Skeleton } from "./common/directives/index.js";
 
 import {i18n} from "./common/utils/i18n.js";
+import router from "./router/router.js";
 
 const app = createApp(App)
 
 // use vendor
-app.use(i18n)
+app.use(i18n).use(router)
 
 app.directive("skeleton", Skeleton)
 
