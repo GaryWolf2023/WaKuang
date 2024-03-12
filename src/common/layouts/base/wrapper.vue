@@ -8,6 +8,7 @@
     </div>
     <footer>
       <slot name="footer">
+        <TabBar />
       </slot>
     </footer>
   </main>
@@ -15,6 +16,7 @@
 
 <script setup>
 
+import TabBar from "./tab-bar.vue";
 </script>
 
 

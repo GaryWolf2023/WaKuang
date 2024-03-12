@@ -1,3 +1,9 @@
 {
-  "HelloWorld": "你好世界"
+  "common": {
+    "tabs": {
+      "title1": "挖矿",
+      "title2": "数据",
+      "title3": "我的"
+    }
+  }
 }
