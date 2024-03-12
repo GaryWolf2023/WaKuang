@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        wakuang
     </div>
 </template>
 
