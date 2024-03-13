@@ -1,5 +1,6 @@
 <template>
   <component :is="getLayout()">
+    <slot></slot>
   </component>
 </template>
 
@@ -14,7 +15,6 @@ const metaData = ref(route.meta);
 
 onMounted(() => {
   metaData.value = route.meta
-  console.log(route.meta)
   layout.value = metaData.value.layout
 })
 

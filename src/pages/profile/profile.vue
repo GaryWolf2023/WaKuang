@@ -1,6 +1,6 @@
 <template>
   <layout_imp>
-    Hello
+    Profile
   </layout_imp>
 </template>
 

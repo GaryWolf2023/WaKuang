@@ -1,3 +1,20 @@
+
+// common
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+  &:link {
+    color: black;
+  }
+}
+
+p {
+  margin: 0;
+}
+
 .skeleton {
   background-color: #e2e5e7;
   background-image:
@@ -12,9 +29,14 @@
   background-position: left -60px top 0;
   animation: shine 1.75s ease infinite;
 }
-
 @keyframes shine {
   to {
     background-position: right -60px top 0;
   }
+}
+
+
+.main, main {
+  min-height: 100vh;
+  position: relative;
 }
