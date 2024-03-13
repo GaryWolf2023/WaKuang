@@ -1,7 +1,7 @@
 <template>
-    <Layout_imp>
-        wakuang
-    </Layout_imp>
+  <Layout_imp>
+    Data
+  </Layout_imp>
 </template>
 
 <script setup>

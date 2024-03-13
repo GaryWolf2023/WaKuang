@@ -1,6 +1,5 @@
 <template>
   <Wrapper>
-    Main
     <slot></slot>
   </Wrapper>
 </template>

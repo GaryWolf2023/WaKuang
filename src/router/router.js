@@ -1,24 +1,40 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 
 const Profile = () => import("../pages/profile/profile.vue")
+const Mining = () => import("../pages/mining/index.vue")
+const Data = () => import("../pages/data/index.vue")
 
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         {
             path: "/",
-            meta: {
-                layout: "detail",
-            },
-            component: Profile
+            redirect: "/mining",
+            children: [
+                {
+                    path: "/mining",
+                    meta: {
+                        layout: "main",
+                    },
+                    component: Mining
+                },
+                {
+                    path: "/data",
+                    meta: {
+                        layout: "main",
+                    },
+                    component: Data
+                },
+                {
+                    path: "/profile",
+                    meta: {
+                        layout: "main",
+                    },
+                    component: Profile
+                },
+            ]
         },
-        {
-            path: "/profile",
-            meta: {
-                layout: "main",
-            },
-            component: Profile
-        },
+
         {
             path: "/auth",
             meta: {
@@ -39,7 +55,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-    // console.log(to, from);
+    console.log(to, from);
     return true;
 });
 

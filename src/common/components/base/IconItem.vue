@@ -1,5 +1,5 @@
 <template>
-  <router-link class="icon-item"  active-class="icon-item_active" :to="props.path">
+  <router-link class="icon-item" active-class="icon-item_active" :to="props.path">
     <div class="icon">
       <img :src="iconSrc" alt="icon" />
     </div>
@@ -26,10 +26,34 @@ const route = useRoute()
 
 iconSrc.value = props.icon
 
-watch(route.path, (oldValue, newValue) => {
-  if(props.path === newValue) {
+watch(() => route.path, (path) => {
+  if(props.path === path) {
     iconSrc.value = props.activeIcon
   }
-})
+}, { immediate: true })
 
 </script>
+
+<style lang="scss" scoped>
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #616161;
+
+  &.icon-item_active {
+    color: #66E0FF
+  }
+
+  .title {
+    display: inline;
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .icon {
+    display: inline;
+    height: 24px;
+  }
+}
+</style>
