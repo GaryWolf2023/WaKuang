@@ -3,17 +3,27 @@
 const CopyToClipboardDirective = {
     beforeMount(el, binding) {
         el.addEventListener('click', () => {
-        // 传入需要复制的值
             const textToCopy = binding.value;
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                console.log('复制成功！');
-                // 可以触发一个自定义事件，通知父组件复制成功
-                window.alert("复制成功")
-            }).catch((err) => {
-                console.error('无法复制文本: ', err);
-                window.alert("复制失败")
-            })
-        });  
+            if (navigator.clipboard && window.isSecureContext) {
+                // navigator clipboard 向剪贴板写文本
+                return navigator.clipboard.writeText(textToCopy);
+            } else {
+                if (!document.execCommand('copy')) return Promise.reject()
+                const textArea = document.createElement('textarea')
+                textArea.style.position = 'fixed'
+                textArea.style.top = textArea.style.left = '-100vh'
+                textArea.style.opacity = '0'
+                textArea.value = textToCopy
+                document.body.appendChild(textArea)
+                textArea.focus()
+                textArea.select()
+                console.log(textToCopy)
+                return new Promise((resolve, reject) => {
+                    document.execCommand('copy') ? resolve() : reject()
+                    textArea.remove()
+                })
+            }
+        })
     },  
     unmounted() {  
       // 清理事件监听器（如果需要的话）  
