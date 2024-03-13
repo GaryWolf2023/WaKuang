@@ -1,5 +1,3 @@
-
-
 const CopyToClipboardDirective = {
     beforeMount(el, binding) {
         el.addEventListener('click', () => {
@@ -7,11 +5,8 @@ const CopyToClipboardDirective = {
             const textToCopy = binding.value;
             navigator.clipboard.writeText(textToCopy).then(() => {
                 console.log('复制成功！');
-                // 可以触发一个自定义事件，通知父组件复制成功
-                window.alert("复制成功")
             }).catch((err) => {
                 console.error('无法复制文本: ', err);
-                window.alert("复制失败")
             })
         });  
     },  
