@@ -14,9 +14,8 @@ export function generateRandom(max, min, num) {
         Error("精度应为自然数")
         return 0
     }
-    min = Math.ceil(min);  
+    min = Math.ceil(min);
     max = Math.floor(max);
     console.log(Math.random());
     return ((Math.random() * (max - min)) + min).toFixed(num);
-    
 }
