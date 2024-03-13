@@ -5,7 +5,7 @@ export const useAppStore = defineStore('app', {
         showSidebar: true,
         fullScreen: false, //全屏
         timezone: "", //时区
-        timezone: [], //时区列表
+        timezoneList: [], //时区列表
         language: 'zh_CN',
         languageList: [
             { 'zh_CN': "simplified Chinese(简体中文)" },
