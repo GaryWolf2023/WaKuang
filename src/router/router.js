@@ -19,11 +19,27 @@ const router = createRouter({
             },
             component: Profile
         },
+        {
+            path: "/auth",
+            meta: {
+                layout: "auth",
+            },
+            component: Profile,
+            children: [
+                {
+                    path: "login",
+                    meta: {
+                        layout: "auth",
+                    },
+                    component: () => import('../pages/auth/login.vue')
+                }
+            ]
+        },
     ],
 })
 
 router.beforeEach((to, from) => {
-    console.log(to, from);
+    // console.log(to, from);
     return true;
 });
 
