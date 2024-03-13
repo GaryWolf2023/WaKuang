@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Layout_imp>
         <van-form @submit="onSubmit">
             <van-cell-group inset>
                 <van-field v-model="username" name="用户名" label="用户名" placeholder="用户名"
@@ -13,11 +13,11 @@
                 </van-button>
             </div>
         </van-form>
-    </div>
+    </Layout_imp>
 </template>
 
 <script setup>
-import { Form, Field, CellGroup } from 'vant'
+import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 
 </script>
 

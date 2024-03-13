@@ -1,4 +1,4 @@
-import {CopyToClipboardDirective} from './directive/clipboard'
+import {CopyToClipboardDirective, Skeleton} from './directive/index.js'
 
 export const myPlugins = {
     install(app, options) {
@@ -6,5 +6,6 @@ export const myPlugins = {
         console.log(app);
         console.log(options);
         app.directive('clipboard', CopyToClipboardDirective)
+        app.directive('skeleton', Skeleton)
     }
 }

@@ -32,18 +32,8 @@ const router = createRouter({
                     },
                     component: Profile
                 },
-            ]
-        },
-
-        {
-            path: "/auth",
-            meta: {
-                layout: "auth",
-            },
-            component: Profile,
-            children: [
                 {
-                    path: "login",
+                    path: "/login",
                     meta: {
                         layout: "auth",
                     },
