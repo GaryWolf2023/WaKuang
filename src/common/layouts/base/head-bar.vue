@@ -1,7 +1,7 @@
 <template>
   <div class="header-bar">
     <slot name="front">
-      <div class="back">
+      <div class="back" @click="$router.back()">
         <img src="../../../assets/common/svg/left-arrow.svg" alt="left-arrow" style="font-size: 8px" />
       </div>
     </slot>
