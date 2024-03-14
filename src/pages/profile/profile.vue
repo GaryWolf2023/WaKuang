@@ -1,5 +1,5 @@
 <template>
-  <layout_imp>
+  <layout_imp :hidHeadBar="true">
     Profile
   </layout_imp>
 </template>

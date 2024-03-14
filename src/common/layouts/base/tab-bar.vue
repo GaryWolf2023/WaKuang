@@ -36,5 +36,7 @@ const tabs= [
 .tab-bar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  background-color: #1E1E1E;
+  padding: 8px 0;
 }
 </style>

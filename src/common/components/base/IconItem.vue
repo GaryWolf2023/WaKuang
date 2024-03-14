@@ -50,6 +50,7 @@ watch(() => route.path, (path) => {
     display: inline;
     font-size: 10px;
     line-height: 14px;
+    margin-top: 4px;
   }
   .icon {
     display: inline;

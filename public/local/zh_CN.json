@@ -5,5 +5,9 @@
       "title2": "数据",
       "title3": "我的"
     }
+  },
+  "mining": {
+    "platformName": "平臺名稱",
+    "hashRate": "算力值"
   }
 }

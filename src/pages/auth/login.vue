@@ -1,10 +1,10 @@
 <template>
-    <Layout_imp>
-        <van-form @submit="onSubmit">
+    <Layout_imp :hid-tab-bar="true">
+        <van-form>
             <van-cell-group inset>
-                <van-field v-model="username" name="用户名" label="" placeholder="請輸入帳號"
+                <van-field name="用户名" label="" placeholder="請輸入帳號"
                     :rules="[{ required: true, message: '請輸入帳號' }]" />
-                <van-field v-model="password" type="password" name="密码" label="" placeholder="請輸入密碼"
+                <van-field type="password" name="密码" label="" placeholder="請輸入密碼"
                     :rules="[{ required: true, message: '請輸入密碼' }]" />
             </van-cell-group>
             <div style="margin: 16px;">
