@@ -1,7 +1,8 @@
 <template>
   <div class="header-bar">
     <slot name="front">
-      <div class="back" v-if="!hidBack">
+      <div class="back">
+        <img src="../../../assets/common/svg/left-arrow.svg" alt="left-arrow" style="font-size: 8px" />
       </div>
     </slot>
     <slot name="middle">
@@ -11,6 +12,7 @@
     </slot>
     <slot name="behind">
       <div class="other">
+        <img src="../../../assets/common/svg/left-arrow.svg" alt="left-arrow" style="font-size: 8px" />
       </div>
     </slot>
   </div>
@@ -21,6 +23,10 @@ const props = defineProps({
   title: String,
   hidBack: Boolean
 })
+
+// style
+const hidden = props.hidBack ? "hidden" : "visible"
+
 </script>
 
 
@@ -30,7 +36,20 @@ const props = defineProps({
   padding: 8px 8px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: v-bind(hidden);
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+  .other {
+    visibility: hidden;
+  }
 }
 
 </style>
