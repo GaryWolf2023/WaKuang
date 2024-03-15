@@ -9,6 +9,11 @@ const MiningBuy = () => import("../pages/mining/buy.vue")
 
 const Data = () => import("../pages/data/index.vue")
 
+// User
+const UserTeam = () => import("../pages/user/team.vue")
+const UserIncome = () => import("../pages/user/income.vue")
+const UserMachine = () => import("../pages/user/machine.vue")
+
 
 
 const router = createRouter({
@@ -27,6 +32,11 @@ const router = createRouter({
                 // Data
                 { path: "/data", meta: { layout: "main" }, component: Data },
                 { path: "/profile", meta: { layout: "main" }, component: Profile },
+
+                // User
+                { path: "/user/team", meta: { layout: "detail" }, component: UserTeam },
+                { path: "/user/income", meta: { layout: "detail" }, component: UserIncome },
+                { path: "/user/machine", meta: { layout: "detail" }, component: UserMachine },
 
 
                 // Auth

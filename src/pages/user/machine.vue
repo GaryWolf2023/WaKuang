@@ -1,0 +1,19 @@
+<template>
+  <Layout_imp :title="$t('user.machine.title')">
+
+  </Layout_imp>
+</template>
+
+<script>
+
+import {defineComponent} from "vue";
+import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+
+export default defineComponent({
+  components: {Layout_imp}
+})
+</script>
+
+<style lang="scss" scoped>
+
+</style>

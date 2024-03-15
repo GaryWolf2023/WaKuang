@@ -1,5 +1,5 @@
 <template>
-  <Wrapper :title="props.title" :hid-tab-bar="props.hidTabBar">
+  <Wrapper :title="props.title" :hid-tab-bar="true">
     <template v-for="(index, name) in $slots" v-slot:[name] :key="index">
       <slot :name="name" />
     </template>
