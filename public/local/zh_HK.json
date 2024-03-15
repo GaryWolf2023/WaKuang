@@ -1,4 +1,5 @@
 {
+  "confirm": "確認",
   "common": {
     "tabs": {
       "title1": "挖矿",
@@ -6,8 +7,74 @@
       "title3": "我的"
     }
   },
+  "login": {
+    "PromptOfUser": "請輸入帳號",
+    "PromptOfPassWord": "請輸入密碼",
+    "login": "登録",
+    "forgetPassword": "忘記密碼",
+    "registerAccount": "註冊帳號",
+    "changeLanguage1": "中文",
+    "changeLanguage2": "English",
+    "changeLanguage3": "简体中文"
+  },
+  "register": {
+    "pageTitle": "創建帳號",
+    "accountPrompt": "請輸入登録帳號",
+    "passwordPrompt": "請輸入綁定郵箱",
+    "verificationCode": "郵箱驗證碼",
+    "getVerificationCode": "獲取驗證碼",
+    "password": "登録密碼",
+    "confirmPassword": "確認密碼",
+    "createAccount": "創建帳號"
+  },
+  "forgetPassword": {
+    "retrievePassword": "找回密碼",
+    "accountPrompt": "請輸入登録帳號",
+    "emailPrompt": "請輸入綁定郵箱",
+    "verificationCode": "郵箱驗證碼",
+    "getVerificationCode": "獲取驗證碼",
+    "resetPassword": "重置密碼",
+    "confirmPassword": "確認密碼"
+  },
   "mining": {
     "platformName": "平臺名稱",
-    "hashRate": "算力值"
+    "hashRate": "算力值",
+    "login": "登録",
+    "buyMining": "購買礦機",
+    "buy": "購買",
+    "pay": "支付",
+    "buyPrompt": "購買算力值",
+    "HMT": "HMT",
+    "payPassword": "請輸入資金密碼",
+    "paySuccess": "支付成功",
+    "errPassword": "資金密碼錯誤",
+    "tokenData": "代幣數據",
+    "HMTPrice": "HMT價格",
+    "pledgeTheWholeNetwork": "全網質押",
+    "destructionQuantity": "銷毀量",
+    "poolData": "礦池數據",
+    "networkComputingPower": "全網算力",
+    "currentPool": "當前礦池",
+    "cumulativeRelease": "累計釋放",
+    "myEarnings": "我的收益",
+    "yesterday": "昨日",
+    "today": "今日",
+    "accumulativeTotal": "累計"
+  },
+  "my": {
+    "wallet": "我的錢包",
+    "USTD": "USTD",
+    "HMT": "HMT",
+    "JUP": "JUP",
+    "myMiner": "我的礦機",
+    "myEarning": "我的收益",
+    "myTeam": "我的團隊",
+    "changePassword": "修改密碼",
+    "fundCode": "資金密碼",
+    "systemLanguage": "系統語言",
+    "feedback": "意見回饋",
+    "safeWithdrawing": "安全退出",
+    "rollIn": "轉入",
+    "rollOut": "轉出"
   }
 }

@@ -38,6 +38,20 @@ const router = createRouter({
                         layout: "auth",
                     },
                     component: () => import('../pages/auth/login.vue')
+                },
+                {
+                    path: "/register",
+                    meta: {
+                        layout: "auth",
+                    },
+                    component: () => import('../pages/auth/register.vue')
+                },
+                {
+                    path: "/retrievePassword",
+                    meta: {
+                        layout: "auth",
+                    },
+                    component: () => import('../pages/auth/retrievePassword.vue')
                 }
             ]
         },
