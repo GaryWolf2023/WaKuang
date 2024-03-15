@@ -1,8 +1,12 @@
 <template>
-    <Layout_imp :hid-tab-bar="false">
+    <Layout_imp :hid-tab-bar="true" :hidBack=true>
+      <template v-slot:header>
+        <div class="reset-header">
+          中文
+        </div>
+      </template>
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
-        <div class="language-change">{{$t('login.changeLanguage1')}}</div>
       </div>
         <van-form class="login-form">
             <van-cell-group inset>
@@ -26,10 +30,16 @@
 
 <script setup>
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import LangBar from "@/common/components/base/langBar.vue";
 
 </script>
 
 <style lang="scss" scoped>
+.reset-header {
+  height: 44px;
+  font-size: 16px;
+  color: rgb(209, 208, 207);
+}
 .login-top {
   height: 217px;
   width: 100%;
