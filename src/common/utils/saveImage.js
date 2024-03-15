@@ -4,5 +4,4 @@ export function saveImage() {
     if (false) {
         
     }
-    
 }
