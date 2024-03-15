@@ -31,6 +31,7 @@ const hidden = props.hidBack ? "hidden" : "visible"
 
 
 <style lang="scss" >
+@import "@/style/var";
 
 .header-bar {
   padding: 8px 16px;
@@ -38,6 +39,7 @@ const hidden = props.hidBack ? "hidden" : "visible"
   align-items: center;
   justify-content: space-between;
   color: #FFFFFF;
+  background-color: $head-bar-bg;
   .back {
     display: flex;
     align-items: center;

@@ -41,7 +41,7 @@ import icon8 from "@/assets/pages/profile/menu-item_8.png"
 
 const { t } = useI18n()
 const menuList = [
-  {title: t("my.myMiner"), path: "/user/miner", icon: icon1},
+  {title: t("my.myMiner"), path: "/user/machine", icon: icon1},
   {title: t("my.myEarning"), path: "/user/income", icon: icon2},
   {title: t("my.myTeam"), path: "/user/team", icon: icon3},
   {title: t("my.changePassword"), path: "/retrievePassword", icon: icon4},

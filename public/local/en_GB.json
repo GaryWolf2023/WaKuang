@@ -38,6 +38,7 @@
   },
   "mining": {
     "platformName": "平臺名稱",
+    "miningData": "礦機資料",
     "hashRate": "算力值",
     "login": "登録",
     "buyMining": "購買礦機",
@@ -77,5 +78,21 @@
     "rollIn": "轉入",
     "rollOut": "轉出",
     "quitSafe": "安全退出"
+  },
+  "user": {
+    "machine": {
+      "title": "我的礦機"
+    },
+    "team": {
+      "tabs": {
+        "title1": "一級(4)",
+        "title2": "二級(0)",
+        "title3": "團隊(4)",
+        "title4": "招募隊友"
+      }
+    },
+    "income": {
+      "headTitle": "累積收益"
+    }
   }
 }
