@@ -8,23 +8,19 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
-        <van-form class="login-form">
-            <van-cell-group inset>
-                <van-field name="用户名" label="" :placeholder="$t('login.PromptOfUser')"
-                    :rules="[{ required: true, message: $t('login.PromptOfUser') }]" />
-                <div class="zhan-wei"></div>
-                <van-field type="password" name="密码" label="" :placeholder="$t('login.PromptOfPassWord')"
-                    :rules="[{ required: true, message: $t('login.PromptOfPassWord') }]" />
-            </van-cell-group>
-
-        </van-form>
-        <div class="login-button">
-          <p class="forget-pass">{{$t('login.forgetPassword')}}</p>
-          <van-button success block native-type="submit" >
+      <van-cell-group inset :style="{margin:'0 21px 14px'}">
+        <van-field name="用户名" label="" :placeholder="$t('login.PromptOfUser')" :rules="[{ required: true, message: $t('login.PromptOfUser') }]" />
+      </van-cell-group>
+      <van-cell-group inset :style="{margin:'0 21px'}">
+        <van-field type="password" name="密码" label="" :placeholder="$t('login.PromptOfPassWord')" :rules="[{ required: true, message: $t('login.PromptOfPassWord') }]" />
+      </van-cell-group>
+      <p class="forget-pass">{{$t('login.forgetPassword')}}</p>
+      <van-cell-group inset :style="{margin:'0 21px',padding:'0'}">
+        <van-button block native-type="submit" class="login-btn" >
             {{ $t('login.login') }}
-          </van-button>
-          <p class="register">{{$t('login.registerAccount')}}</p>
-        </div>
+        </van-button>
+      </van-cell-group>
+      <p class="register">{{$t('login.registerAccount')}}</p>
     </Layout_imp>
 </template>
 
@@ -32,13 +28,17 @@
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import LangBar from "@/common/components/base/langBar.vue";
 
+
 </script>
 
 <style lang="scss" scoped>
 .reset-header {
   height: 44px;
+  line-height: 44px;
+  padding-right: 16px;
   font-size: 16px;
   color: rgb(209, 208, 207);
+  text-align: right;
 }
 .login-top {
   height: 217px;
@@ -51,37 +51,44 @@ import LangBar from "@/common/components/base/langBar.vue";
     top: 101px;
     left: calc(50% - 40px);
   }
-  .language-change {
-    position: absolute;
-    top: 5px;
-    right: 16px;
-    font-size: 16px;
-    color: #D1D0CF;
+}
+:deep(.van-cell-group) {
+  background-color: #1c1c1c;
+  padding: 0;
+  border: none;
+}
+:deep(.van-cell) {
+  height: 46px;
+  line-height: 46px;
+  padding: 0 0 0 20px;
+  font-size: 16px;
+  color: rgb(209, 208, 207);
+  background-color: #1c1c1c;
+  .van-field__control {
+    color: rgb(209, 208, 207);
   }
-  :deep(.van-form) {
-    .van-cell-group {
-      .van-cell {
-        padding: 0;
-      }
-      .zhan-wei {
-        height: 14px;
-        width: 100%;
-      }
-    }
-  }
-  .login-button {
-    margin: 0 16px;
-    .forget-pass {
-      height: 20px;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      font-size: 14px;
-      text-align: right;
-    }
-    .register {
-      text-align: center;
-    }
-  }
+}
+:deep(.login-btn) {
+  background-color: rgb(102, 224, 255);
+  height: 46px;
+  font-size: 16px;
+  color: rgb(18, 17, 15);
+  border: none;
+}
+.forget-pass {
+  height: 50px;
+  line-height: 50px;
+  width: calc(100% - 48px);
+  margin: 0;
+  padding: 0 24px;
+  font-size: 14px;
+  text-align: right;
+  color: rgb(97, 97, 97);
+}
+.register {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: rgb(97, 97, 97);
 }
 </style>

@@ -25,7 +25,8 @@
     "getVerificationCode": "獲取驗證碼",
     "password": "登録密碼",
     "confirmPassword": "確認密碼",
-    "createAccount": "創建帳號"
+    "createAccount": "創建帳號",
+    "resend": "重新发送"
   },
   "forgetPassword": {
     "retrievePassword": "找回密碼",
@@ -34,7 +35,8 @@
     "verificationCode": "郵箱驗證碼",
     "getVerificationCode": "獲取驗證碼",
     "resetPassword": "重置密碼",
-    "confirmPassword": "確認密碼"
+    "confirmPassword": "確認密碼",
+    "resend": "重新发送"
   },
   "mining": {
     "platformName": "平臺名稱",
