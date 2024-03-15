@@ -1,5 +1,9 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: PingFang SC, Microsoft YaHei, Arial, sans-serif, serif;
+}
+:deep(.van-cell .van-field) {
+    background-color: #1C1C1C;
+    color: #D1D0CF;
 }

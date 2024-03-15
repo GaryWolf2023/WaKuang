@@ -20,7 +20,7 @@
   "register": {
     "pageTitle": "創建帳號",
     "accountPrompt": "請輸入登録帳號",
-    "passwordPrompt": "請輸入綁定郵箱",
+    "emailPrompt": "請輸入綁定郵箱",
     "verificationCode": "郵箱驗證碼",
     "getVerificationCode": "獲取驗證碼",
     "password": "登録密碼",
