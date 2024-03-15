@@ -39,6 +39,7 @@
   "mining": {
     "platformName": "平臺名稱",
     "hashRate": "算力值",
+    "buyNow": "立即購買",
     "login": "登録",
     "buyMining": "購買礦機",
     "buy": "購買",

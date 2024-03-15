@@ -33,10 +33,11 @@ const hidden = props.hidBack ? "hidden" : "visible"
 <style lang="scss" >
 
 .header-bar {
-  padding: 8px 8px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #FFFFFF;
   .back {
     display: flex;
     align-items: center;
@@ -45,6 +46,8 @@ const hidden = props.hidBack ? "hidden" : "visible"
   }
   .title {
     width: 100%;
+    font-size: 17px;
+    line-height: 28px;
     text-align: center;
   }
   .other {

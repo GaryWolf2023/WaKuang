@@ -1,3 +1,4 @@
+@import "var";
 
 // common
 
@@ -39,4 +40,5 @@ p {
 .main, main {
   min-height: 100vh;
   position: relative;
+  color: $input-text
 }

@@ -33,10 +33,11 @@ const tabs= [
 </script>
 
 <style lang="scss">
+@import "@/style/var";
 .tab-bar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: #1E1E1E;
-  padding: 8px 0;
+  padding: 12px 0;
+  background-color: $tab-bar-bg;
 }
 </style>

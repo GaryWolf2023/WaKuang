@@ -1,6 +1,8 @@
 <template>
   <component :is="getLayout()">
-    <slot></slot>
+    <template v-for="(index, name) in $slots" v-slot:[name]>
+      <slot :name="name" />
+    </template>
   </component>
 </template>
 
