@@ -7,7 +7,6 @@
 <script setup>
 import { defineAsyncComponent, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import RouteLoading from "@/common/components/animation/RouteLoading.vue";
 
 const route = useRoute()
 const layout = ref("")
