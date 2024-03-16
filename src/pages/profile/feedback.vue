@@ -1,6 +1,5 @@
 <template>
   <layout_imp>
-
   </layout_imp>
 </template>
 <script setup>

@@ -1,101 +1,105 @@
 {
-  "confirm": "確認",
+  "confirm": "确认",
   "common": {
     "tabs": {
       "title1": "挖矿",
       "title2": "数据",
       "title3": "我的"
+    },
+    "action": {
+      "cancel": "取消",
+      "confirm": "确认"
     }
   },
   "login": {
-    "PromptOfUser": "請輸入帳號",
-    "PromptOfPassWord": "請輸入密碼",
-    "login": "登録",
-    "forgetPassword": "忘記密碼",
-    "registerAccount": "註冊帳號",
+    "PromptOfUser": "请输入帐号",
+    "PromptOfPassWord": "请输入密码",
+    "login": "登录",
+    "forgetPassword": "忘记密码",
+    "registerAccount": "注册帐号",
     "changeLanguage1": "中文",
     "changeLanguage2": "English",
     "changeLanguage3": "简体中文"
   },
   "register": {
-    "pageTitle": "創建帳號",
-    "accountPrompt": "請輸入登録帳號",
-    "emailPrompt": "請輸入綁定郵箱",
-    "verificationCode": "郵箱驗證碼",
-    "getVerificationCode": "獲取驗證碼",
-    "password": "登録密碼",
-    "confirmPassword": "確認密碼",
-    "createAccount": "創建帳號",
+    "pageTitle": "创建帐号",
+    "accountPrompt": "请输入登录帐号",
+    "emailPrompt": "请输入绑定邮箱",
+    "verificationCode": "邮箱验证码",
+    "getVerificationCode": "获取验证码",
+    "password": "登录密码",
+    "confirmPassword": "确认密码",
+    "createAccount": "创建帐号",
     "resend": "重新发送"
   },
   "forgetPassword": {
-    "retrievePassword": "找回密碼",
-    "accountPrompt": "請輸入登録帳號",
-    "emailPrompt": "請輸入綁定郵箱",
-    "verificationCode": "郵箱驗證碼",
-    "getVerificationCode": "獲取驗證碼",
-    "resetPassword": "重置密碼",
-    "confirmPassword": "確認密碼",
+    "retrievePassword": "找回密码",
+    "accountPrompt": "请输入登录帐号",
+    "emailPrompt": "请输入绑定邮箱",
+    "verificationCode": "邮箱验证码",
+    "getVerificationCode": "获取验证码",
+    "resetPassword": "重置密码",
+    "confirmPassword": "确认密码",
     "resend": "重新发送"
   },
   "mining": {
-    "platformName": "平臺名稱",
-    "miningData": "礦機資料",
+    "platformName": "平台名称",
+    "miningData": "矿机资料",
     "hashRate": "算力值",
-    "login": "登録",
-    "buyMining": "購買礦機",
-    "buyNow": "立即購買",
-    "buy": "購買",
+    "login": "登录",
+    "buyMining": "购买矿机",
+    "buyNow": "立即购买",
+    "buy": "购买",
     "pay": "支付",
-    "buyPrompt": "購買算力值",
+    "buyPrompt": "购买算力值",
     "HMT": "HMT",
-    "payPassword": "請輸入資金密碼",
+    "payPassword": "请输入资金密码",
     "paySuccess": "支付成功",
-    "errPassword": "資金密碼錯誤",
-    "tokenData": "代幣數據",
-    "HMTPrice": "HMT價格",
-    "pledgeTheWholeNetwork": "全網質押",
-    "destructionQuantity": "銷毀量",
-    "poolData": "礦池數據",
-    "networkComputingPower": "全網算力",
-    "currentPool": "當前礦池",
-    "cumulativeRelease": "累計釋放",
+    "errPassword": "资金密码错误",
+    "tokenData": "代币数据",
+    "HMTPrice": "HMT价格",
+    "pledgeTheWholeNetwork": "全网质押",
+    "destructionQuantity": "销毁量",
+    "poolData": "矿池数据",
+    "networkComputingPower": "全网算力",
+    "currentPool": "当前矿池",
+    "cumulativeRelease": "累计释放",
     "myEarnings": "我的收益",
     "yesterday": "昨日",
     "today": "今日",
-    "accumulativeTotal": "累計"
+    "accumulativeTotal": "累计"
   },
   "my": {
-    "wallet": "我的錢包",
+    "wallet": "我的钱包",
     "USTD": "USTD",
     "HMT": "HMT",
     "JUP": "JUP",
-    "myMiner": "我的礦機",
+    "myMiner": "我的矿机",
     "myEarning": "我的收益",
-    "myTeam": "我的團隊",
-    "changePassword": "修改密碼",
-    "fundCode": "資金密碼",
-    "systemLanguage": "系統語言",
-    "feedback": "意見回饋",
+    "myTeam": "我的团队",
+    "changePassword": "修改密码",
+    "fundCode": "资金密码",
+    "systemLanguage": "系统语言",
+    "feedback": "意见回馈",
     "safeWithdrawing": "安全退出",
-    "rollIn": "轉入",
-    "rollOut": "轉出",
+    "rollIn": "转入",
+    "rollOut": "转出",
     "quitSafe": "安全退出"
   },
   "user": {
     "machine": {
-      "title": "我的礦機"
+      "title": "我的矿机"
     },
     "team": {
       "tabs": {
-        "title1": "一級(4)",
-        "title2": "二級(0)",
-        "title3": "團隊(4)",
-        "title4": "招募隊友"
+        "title1": "一级(4)",
+        "title2": "二级(0)",
+        "title3": "团队(4)",
+        "title4": "招募队友"
       }
     },
     "income": {
-      "headTitle": "累積收益"
+      "headTitle": "累积收益"
     },
     "feedback": {
       "title": "意見回饋",

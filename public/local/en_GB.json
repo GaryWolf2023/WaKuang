@@ -1,98 +1,108 @@
 {
-  "confirm": "確認",
+  "confirm": "confirm",
   "common": {
     "tabs": {
-      "title1": "挖矿",
-      "title2": "数据",
-      "title3": "我的"
+      "title1": "Mining",
+      "title2": "data",
+      "title3": "My"
+    },
+    "action": {
+      "cancel": "cancel",
+      "confirm": "confirm"
     }
   },
   "login": {
-    "PromptOfUser": "請輸入帳號",
-    "PromptOfPassWord": "請輸入密碼",
-    "login": "登録",
-    "forgetPassword": "忘記密碼",
-    "registerAccount": "註冊帳號",
-    "changeLanguage1": "中文",
+    "PromptOfUser": "Please enter your account number",
+    "PromptOfPassWord": "Please enter password",
+    "login": "login",
+    "forgetPassword": "Forgot password",
+    "registerAccount": "Register Account",
+    "changeLanguage1": "Chinese",
     "changeLanguage2": "English",
-    "changeLanguage3": "简体中文"
+    "changeLanguage3": "Simplified Chinese"
   },
   "register": {
-    "pageTitle": "創建帳號",
-    "accountPrompt": "請輸入登録帳號",
-    "passwordPrompt": "請輸入綁定郵箱",
-    "verificationCode": "郵箱驗證碼",
-    "getVerificationCode": "獲取驗證碼",
-    "password": "登録密碼",
-    "confirmPassword": "確認密碼",
-    "createAccount": "創建帳號"
+    "pageTitle": "Create account",
+    "accountPrompt": "Please enter your login account",
+    "emailPrompt": "Please enter the binding email address",
+    "verificationCode": "Email verification code",
+    "getVerificationCode": "Get verification code",
+    "password": "Login password",
+    "confirmPassword": "Confirm password",
+    "createAccount": "Create account",
+    "resend": "resend"
   },
   "forgetPassword": {
-    "retrievePassword": "找回密碼",
-    "accountPrompt": "請輸入登録帳號",
-    "emailPrompt": "請輸入綁定郵箱",
-    "verificationCode": "郵箱驗證碼",
-    "getVerificationCode": "獲取驗證碼",
-    "resetPassword": "重置密碼",
-    "confirmPassword": "確認密碼"
+    "retrievePassword": "Retrieve password",
+    "accountPrompt": "Please enter your login account",
+    "emailPrompt": "Please enter the binding email address",
+    "verificationCode": "Email verification code",
+    "getVerificationCode": "Get verification code",
+    "resetPassword": "Reset password",
+    "confirmPassword": "Confirm password",
+    "resend": "resend"
   },
   "mining": {
-    "platformName": "平臺名稱",
-    "miningData": "礦機資料",
-    "hashRate": "算力值",
-    "login": "登録",
-    "buyMining": "購買礦機",
-    "buy": "購買",
-    "pay": "支付",
-    "buyPrompt": "購買算力值",
+    "platformName": "Platform Name",
+    "miningData": "Mining machine data",
+    "hashRate": "Hash rate value",
+    "login": "login",
+    "buyMining": "Buy Mining Machine",
+    "buyNow": "Buy Now",
+    "buy": "buy",
+    "pay": "pay",
+    "buyPrompt": "Buy computing power value",
     "HMT": "HMT",
-    "payPassword": "請輸入資金密碼",
-    "paySuccess": "支付成功",
-    "errPassword": "資金密碼錯誤",
-    "tokenData": "代幣數據",
-    "HMTPrice": "HMT價格",
-    "pledgeTheWholeNetwork": "全網質押",
-    "destructionQuantity": "銷毀量",
-    "poolData": "礦池數據",
-    "networkComputingPower": "全網算力",
-    "currentPool": "當前礦池",
-    "cumulativeRelease": "累計釋放",
-    "myEarnings": "我的收益",
-    "yesterday": "昨日",
-    "today": "今日",
-    "accumulativeTotal": "累計"
+    "payPassword": "Please enter the fund password",
+    "paySuccess": "Payment successful",
+    "errPassword": "Wrong fund password",
+    "tokenData": "TokenData",
+    "HMTPrice": "HMTPrice",
+    "pledgeTheWholeNetwork": "Pledge the whole network",
+    "destructionQuantity": "Destruction Quantity",
+    "poolData": "Pool Data",
+    "networkComputingPower": "Computing power of the whole network",
+    "currentPool": "Current mining pool",
+    "cumulativeRelease": "cumulative release",
+    "myEarnings": "My Earnings",
+    "yesterday": "yesterday",
+    "today": "today",
+    "accumulativeTotal": "accumulative"
   },
   "my": {
-    "wallet": "我的錢包",
+    "wallet": "my wallet",
     "USTD": "USTD",
     "HMT": "HMT",
     "JUP": "JUP",
-    "myMiner": "我的礦機",
-    "myEarning": "我的收益",
-    "myTeam": "我的團隊",
-    "changePassword": "修改密碼",
-    "fundCode": "資金密碼",
-    "systemLanguage": "系統語言",
-    "feedback": "意見回饋",
-    "safeWithdrawing": "安全退出",
-    "rollIn": "轉入",
-    "rollOut": "轉出",
-    "quitSafe": "安全退出"
+    "myMiner": "My mining machine",
+    "myEarning": "My Earning",
+    "myTeam": "my team",
+    "changePassword": "Change password",
+    "fundCode": "FundCode",
+    "systemLanguage": "System Language",
+    "feedback": "Feedback",
+    "safeWithdrawing": "Safe exit",
+    "rollIn": "roll in",
+    "rollOut": "rollout",
+    "quitSafe": "Quit safely"
   },
   "user": {
     "machine": {
-      "title": "我的礦機"
+      "title": "My mining machine"
     },
     "team": {
       "tabs": {
-        "title1": "一級(4)",
-        "title2": "二級(0)",
-        "title3": "團隊(4)",
-        "title4": "招募隊友"
+        "title1": "Level 1(4)",
+        "title2": "Second level (0)",
+        "title3": "Team(4)",
+        "title4": "Recruit teammates"
       }
     },
     "income": {
-      "headTitle": "累積收益"
+      "headTitle": "Accumulated earnings"
     }
+  },
+  "profile": {
+
   }
 }

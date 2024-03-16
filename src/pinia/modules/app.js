@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+import {setStorageItem} from "@/common/utils/storage.js";
+import {i18n} from "@/common/utils/i18n.js";
 export const useAppStore = defineStore('app', {
     state: () => ({
         showSetting: false,
@@ -8,10 +10,10 @@ export const useAppStore = defineStore('app', {
         timezoneList: [], //时区列表
         language: 'zh_CN',
         languageList: [
-            { 'zh_CN': "simplified Chinese(简体中文)" },
-            { 'zh_HK': "Chinese Traditional(繁体中文)" },
-            { 'en_GB': "English" },
-            { 'jp_JA': "Japanese"}
+            { mark: 'zh_CN', name: "中文简体", visible: true, desc: "simplified Chinese(简体中文)" },
+            { mark: 'zh_HK', name: "中文繁體", visible: true, desc: "Chinese Traditional(繁体中文)" },
+            { mark: 'en_GB', name: "English", visible: true, desc: "English" },
+            { mark: 'jp_JA', name: "日本語", visible: false, desc: "Japanese"}
         ],
     }),
     actions: {
@@ -24,12 +26,20 @@ export const useAppStore = defineStore('app', {
         changeFullScreen() {
             this.fullScreen = !this.fullScreen
         },
-        changeLaguage(language) {
+        changeLanguage(language) {
             this.language = language
+            setStorageItem("cur-lang", language)
         },
         changeFormSize(formSize) {
             this.formSize = formSize
         }
     },
-    getters: {}
+    getters: {
+        curLang(state) {
+            return state.language
+        },
+        langList(state) {
+            return state.languageList
+        }
+    }
 })

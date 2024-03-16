@@ -1,6 +1,8 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 
+// Profile
 const Profile = () => import("../pages/profile/profile.vue")
+const Feedback = () => import("../pages/profile/feedback.vue")
 
 // Mining
 const Mining = () => import("../pages/mining/index.vue")
@@ -30,7 +32,10 @@ const router = createRouter({
 
                 // Data
                 { path: "/data", meta: { layout: "main" }, component: Data },
+
+                // Profile
                 { path: "/profile", meta: { layout: "main" }, component: Profile },
+                { path: "/feedBack", meta: { layout: "main" }, component: Feedback },
 
                 // User
                 { path: "/user/team", meta: { layout: "detail" }, component: UserTeam },

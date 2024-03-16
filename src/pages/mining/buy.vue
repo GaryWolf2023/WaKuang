@@ -3,11 +3,11 @@
     <div class="machine-list">
       <div class="machine-item" v-for="(item, index) in machineList" :key="index">
         <div class="item-header">
-          <img :src="item.logo" alt="logo" style="font-size: 8px" />
+          <img :src="item.logo || defaultCoin" alt="logo" style="font-size: 8px; height: 28px" />
           <p>{{ item.name }}</p>
           <p>{{item.speed}}</p>
           <div>
-            number
+            <van-stepper :min="0" v-model="value" theme="round" button-size="22" />
           </div>
         </div>
         <div class="item-divider" style="background-color: #282828; height: 1px; margin: 13px 0"></div>
@@ -31,6 +31,7 @@
 <script setup>
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {ref} from "vue";
+import defaultCoin from "../../assets/common/svg/default-coin.svg"
 
 const machineList = ref([])
 
@@ -62,6 +63,32 @@ machineList.value = [
       font-size: 13px;
       line-height: 20px;
     }
+
+    :deep(.van-stepper--round) {
+      .van-stepper__plus {
+        background: rgba(0, 0, 0, 0);
+        border: 2px solid #FFFFFF;
+        &:before {
+          height: 2px;
+        }
+        &:after {
+          width: 2px;
+        }
+      }
+      .van-stepper__input {
+        font-size: 15px;
+        font-weight: 500;
+        color: #616161;
+      }
+      .van-stepper__minus {
+        background: rgba(0, 0, 0, 0);
+        border: 2px solid #616161;
+        color: #616161;
+        &:before {
+          height: 2px;
+        }
+      }
+    }
   }
 }
 
@@ -69,6 +96,7 @@ machineList.value = [
   padding: 10px 21px;
   background-color: $tab-bar-bg;
   .buy-button {
+    color: #1E1E1E;
     width: 100%;
     border: none;
     font-size: 16px;

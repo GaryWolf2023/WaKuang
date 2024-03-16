@@ -1,6 +1,5 @@
 import axios from "axios";
 
-import {getItem, setItem} from "../../common/utils/storage.js";
 
 const baseURL =  import.meta.env.VITE_BASE_URL
 const timeout = import.meta.env.VITE_TIMEOUT
