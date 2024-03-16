@@ -9,26 +9,46 @@
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
-        <van-field name="用户名" label="" :placeholder="$t('login.PromptOfUser')" :rules="[{ required: true, message: $t('login.PromptOfUser') }]" />
+        <van-field v-model="loginForm.username" name="用户名" label="" :placeholder="$t('login.PromptOfUser')" :rules="[{ required: true, message: $t('login.PromptOfUser') }]" />
       </van-cell-group>
       <van-cell-group inset :style="{margin:'0 21px'}">
-        <van-field type="password" name="密码" label="" :placeholder="$t('login.PromptOfPassWord')" :rules="[{ required: true, message: $t('login.PromptOfPassWord') }]" />
+        <van-field v-model="" type="password" name="密码" label="" :placeholder="$t('login.PromptOfPassWord')" :rules="[{ required: true, message: $t('login.PromptOfPassWord') }]" />
       </van-cell-group>
-      <p class="forget-pass">{{$t('login.forgetPassword')}}</p>
+      <p class="forget-pass">
+        <span  @click="forgetPassword">{{$t('login.forgetPassword')}}</span>
+      </p>
       <van-cell-group inset :style="{margin:'0 21px',padding:'0'}">
         <van-button block native-type="submit" class="login-btn" >
             {{ $t('login.login') }}
         </van-button>
       </van-cell-group>
-      <p class="register">{{$t('login.registerAccount')}}</p>
+      <p class="register">
+        <span @click="goRegister">{{$t('login.registerAccount')}}</span>
+      </p>
     </Layout_imp>
 </template>
 
 <script setup>
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import LangBar from "@/common/components/base/langBar.vue";
+import {useRouter, ref, reactive} from 'vue-router'
 
+const router = useRouter()
 
+let loginForm = reactive({
+  username: "",
+  password: ""
+})
+const forgetPassword = () => {
+  router.push({
+    path: '/retrievePassword'
+  })
+}
+const goRegister = () => {
+  router.push({
+    path: '/register'
+  })
+}
 </script>
 
 <style lang="scss" scoped>

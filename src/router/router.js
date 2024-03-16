@@ -28,7 +28,6 @@ const router = createRouter({
                 { path: "/mining", meta: { layout: "main" }, component: Mining},
                 { path: "/mining/buy", meta: { layout: "main" }, component: MiningBuy},
 
-
                 // Data
                 { path: "/data", meta: { layout: "main" }, component: Data },
                 { path: "/profile", meta: { layout: "main" }, component: Profile },
@@ -37,10 +36,10 @@ const router = createRouter({
                 { path: "/user/team", meta: { layout: "detail" }, component: UserTeam },
                 { path: "/user/income", meta: { layout: "detail" }, component: UserIncome },
                 { path: "/user/machine", meta: { layout: "detail" }, component: UserMachine },
-
+                { path: "/user/feedback", meta: { layout: "detail" }, component: () => import('@/pages/user/feedback.vue') },
 
                 // Auth
-                {  path: "/login", meta: { layout: "auth" }, component: () => import('../pages/auth/login.vue') },
+                { path: "/login", meta: { layout: "auth" }, component: () => import('../pages/auth/login.vue') },
                 { path: "/register", meta: { layout: "auth" }, component: () => import('../pages/auth/register.vue') },
                 { path: "/retrievePassword", meta: { layout: "auth" }, component: () => import('../pages/auth/retrievePassword.vue') }
             ]

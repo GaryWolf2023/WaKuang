@@ -115,6 +115,7 @@ const startCountDown = () => {
     height: 46px;
     font-size: 16px;
     color: rgb(18, 17, 15);
+    border: none;
   }
 }
 </style>

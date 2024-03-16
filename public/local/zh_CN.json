@@ -96,6 +96,14 @@
     },
     "income": {
       "headTitle": "累積收益"
+    },
+    "feedback": {
+      "title": "意見回饋",
+      "content": "迴響內容",
+      "areaPrompt": "請輸入迴響內容",
+      "updateImg": "上傳圖片",
+      "uploadLimit": "（最多可上傳6張）",
+      "submitEcho": "提交迴響"
     }
   },
   "profile": {
