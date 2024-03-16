@@ -14,12 +14,14 @@
 <script setup>
 import { defineEmits, ref, watch } from "vue";
 import { useAppStore } from "@/pinia/modules/app.js";
+import {useI18n} from "vue-i18n";
 
 const store = useAppStore()
 const props = defineProps({
   showDrawer: Boolean,
 })
 const emit = defineEmits(['close'])
+let { locale } = useI18n()
 
 // Handle Data
 const handleActions = (curLang) => {
@@ -55,6 +57,7 @@ watch(() => store.curLang, (value) => {
 const chooseLang = (action) => {
   close(false)
   store.changeLanguage(action.mark)
+  locale.value = action.mark
 }
 const close = () =>{
   emit('close', false)

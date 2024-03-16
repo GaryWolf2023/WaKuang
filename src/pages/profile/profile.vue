@@ -16,8 +16,8 @@
               <p style="font-size: 16px;font-weight: 700">{{ coin.balance }}</p>
             </div>
             <div class="item-footer">
-              <button @click="handleAction(coin.type, coin)">{{ $t('my.rollIn') }}</button>
-              <button @click="handleAction(coin.type, coin)">{{ $t('my.rollOut') }}</button>
+              <button @click="handleAction(coin.type, coin)">{{ t('my.rollIn') }}</button>
+              <button @click="handleAction(coin.type, coin)">{{ t('my.rollOut') }}</button>
             </div>
           </div>
           <div v-show="index !== coinList.length - 1" class="divider"
@@ -68,12 +68,12 @@ import icon5 from "@/assets/pages/profile/menu-item_5.png"
 import icon6 from "@/assets/pages/profile/menu-item_6.png"
 import icon7 from "@/assets/pages/profile/menu-item_7.png"
 import icon8 from "@/assets/pages/profile/menu-item_8.png"
-import {ref} from "vue";
+import {computed, ref, watch} from "vue";
 import Dialog from "@/common/components/base/Dialog.vue";
 import LangBar from "@/common/components/base/LangBar.vue";
 
-const {t} = useI18n()
-const menuList = [
+const { t } = useI18n()
+const menuList = computed(() => [
   {title: t("my.myMiner"), path: "/user/machine", icon: icon1},
   {title: t("my.myEarning"), path: "/user/income", icon: icon2},
   {title: t("my.myTeam"), path: "/user/team", icon: icon3},
@@ -82,7 +82,7 @@ const menuList = [
   {title: t("my.systemLanguage"), action: "change-lang", icon: icon6},
   {title: t("my.feedback"), path: "/feedBack", icon: icon7},
   {title: t("my.quitSafe"), action: "quit-safe", icon: icon8},
-]
+])
 const coinList = [
   {name: "USDT", balance: "1000.00 "},
   {name: "HMT", balance: "1800.00"},
@@ -102,6 +102,8 @@ const handleClick = (actionType) => {
     case "quit-safe":
   }
 }
+
+
 
 const handleAction = (actionType, coin) => {
   type.value = actionType ? actionType : "roll-in"
@@ -130,6 +132,10 @@ const handleCloseDialog = (show) => {
 const handleCloseLang = (show) => {
   showLang.value = show
 }
+
+</script>
+
+<script>
 
 </script>
 

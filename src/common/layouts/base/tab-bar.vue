@@ -21,15 +21,16 @@ import icon3 from "@/assets/tabbar/icon_3.svg"
 import iconActive1 from "@/assets/tabbar/icon_active_1.svg"
 import iconActive2 from "@/assets/tabbar/icon_active_2.svg"
 import iconActive3 from "@/assets/tabbar/icon_active_3.svg"
+import {computed} from "vue";
 
 
 const { t } = useI18n();
 
-const tabs= [
+const tabs= computed(() => [
   { title: t("common.tabs.title1"), path: "/mining", icon: icon1, activeIcon: iconActive1 },
   { title: t("common.tabs.title2"), path: "/data", icon: icon2, activeIcon: iconActive2 },
   { title: t("common.tabs.title3"), path: "/profile", icon: icon3, activeIcon: iconActive3 },
-]
+])
 </script>
 
 <style lang="scss">

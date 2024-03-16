@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
+import {setStorageItem} from "@/common/utils/storage.js";
 import {i18n} from "@/common/utils/i18n.js";
-import {useI18n} from "vue-i18n";
 export const useAppStore = defineStore('app', {
     state: () => ({
         showSetting: false,
@@ -27,10 +27,8 @@ export const useAppStore = defineStore('app', {
             this.fullScreen = !this.fullScreen
         },
         changeLanguage(language) {
-            const { local } = useI18n()
             this.language = language
-            console.log(local)
-            local.value = language
+            setStorageItem("cur-lang", language)
         },
         changeFormSize(formSize) {
             this.formSize = formSize

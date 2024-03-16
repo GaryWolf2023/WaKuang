@@ -1,4 +1,5 @@
 import {createI18n} from 'vue-i18n'
+import {getStorageItem} from "@/common/utils/storage.js";
 
 function loadLocaleMessages() {
     const locales = import.meta.glob("/public/local/*.json")
@@ -13,8 +14,9 @@ function loadLocaleMessages() {
 }
 
 export const i18n = createI18n({
+    globalInjection: true,
     legacy: false,
-    locale: "zh_CN",
+    locale: getStorageItem("cur-lang") ? getStorageItem("cur-lang") : "en_GB",
     fallbackLocale: "",
     messages: loadLocaleMessages(),
     silentTranslationWarn: true,
