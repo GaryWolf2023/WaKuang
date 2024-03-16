@@ -26,7 +26,7 @@
 
 <script setup>
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
-import LangBar from "@/common/components/base/langBar.vue";
+import LangBar from "@/common/components/base/LangBar.vue";
 
 
 </script>

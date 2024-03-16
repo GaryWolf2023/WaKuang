@@ -5,6 +5,10 @@
       "title1": "挖矿",
       "title2": "数据",
       "title3": "我的"
+    },
+    "action": {
+      "cancel": "取消",
+      "confirm": "確認"
     }
   },
   "login": {
