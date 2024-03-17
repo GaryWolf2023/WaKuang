@@ -16,8 +16,8 @@
               <p style="font-size: 16px;font-weight: 700">{{ coin.balance }}</p>
             </div>
             <div class="item-footer">
-              <button @click="handleAction(coin.type, coin)">{{ t('my.rollIn') }}</button>
-              <button @click="handleAction(coin.type, coin)">{{ t('my.rollOut') }}</button>
+              <button class="button in" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">{{ coin.type !== 'HMT' ? $t('my.rollIn') : $t('my.buy') }}</button>
+              <button class="button out" @click="handleAction(coin.type !== 'HMT' ? 'roll_out' : 'sell', coin)">{{ coin.type !== 'HMT' ? t('my.rollOut') : $t('my.sell') }}</button>
             </div>
           </div>
           <div v-show="index !== coinList.length - 1" class="divider"
@@ -84,13 +84,12 @@ const menuList = computed(() => [
   {title: t("my.quitSafe"), action: "quit-safe", icon: icon8},
 ])
 const coinList = [
-  {name: "USDT", balance: "1000.00 "},
-  {name: "HMT", balance: "1800.00"},
-  {name: "JUP", balance: "5600.00"}
+  {name: "USDT", balance: "1000.00 ", type: "COIN"},
+  {name: "HMT", balance: "1800.00", type: "HMT"},
+  {name: "JUP", balance: "5600.00", type: "COIN"}
 ]
 const showDialog = ref(false)
 const showLang = ref(false)
-const title = ref("轉入")
 const type = ref("")
 const coinInfo = ref(null)
 
@@ -103,26 +102,24 @@ const handleClick = (actionType) => {
   }
 }
 
+const title = computed(() => {
+  switch (type.value) {
+    case "roll_in":
+      return t('my.rollIn');
+    case "roll_out":
+      return t('my.rollOut');
+    case "buy":
+      return t('my.buy');
+    case "sell":
+      return t('my.sell');
+  }
+})
 
 
 const handleAction = (actionType, coin) => {
-  type.value = actionType ? actionType : "roll-in"
+  type.value = actionType ? actionType : "roll_in"
   coinInfo.value = coin
   showDialog.value = true
-  switch (actionType) {
-    case "roll_in":
-      title.value = "轉入";
-      break;
-    case "roll_out":
-      title.value = "轉出";
-      break;
-    case "buy":
-      title.value = "買入";
-      break;
-    case "sell":
-      title.value = "賣出";
-      break;
-  }
 }
 
 const handleCloseDialog = (show) => {
@@ -179,6 +176,9 @@ const handleCloseLang = (show) => {
         .item-footer {
           margin-top: 12px;
           text-align: right;
+          display: flex;
+          justify-content: right;
+          gap: 12px;
         }
       }
     }
@@ -201,5 +201,18 @@ const handleCloseLang = (show) => {
   }
 }
 
+.button {
+  border: none;
+  border-radius: 4px;
+  padding: 3px 18px;
+  font-size: 12px;
+  color: #FFFFFF;
+  &.in {
+    background-color: #003568;
+  }
+  &.out {
+    background-color: #F84747;
+  }
+}
 
 </style>

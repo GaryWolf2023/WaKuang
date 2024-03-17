@@ -84,6 +84,8 @@
     "safeWithdrawing": "安全退出",
     "rollIn": "转入",
     "rollOut": "转出",
+    "buy": "買入",
+    "sell": "賣出",
     "quitSafe": "安全退出"
   },
   "user": {
