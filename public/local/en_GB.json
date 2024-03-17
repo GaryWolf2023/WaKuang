@@ -84,6 +84,8 @@
     "safeWithdrawing": "Safe exit",
     "rollIn": "roll in",
     "rollOut": "rollout",
+    "buy": "buy",
+    "sell": "sell",
     "quitSafe": "Quit safely"
   },
   "user": {
