@@ -8,12 +8,25 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
+      <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
-        <van-field v-model="loginForm.username" name="用户名" label="" :placeholder="$t('login.PromptOfUser')" :rules="[{ required: true, message: $t('login.PromptOfUser') }]" />
+        <van-field
+            v-model="loginForm.username"
+            name="account"
+            :placeholder="$t('login.PromptOfUser')"
+            :rules="[{ accountErrorPromt, message: $t('login.accountError') }]"
+        />
       </van-cell-group>
       <van-cell-group inset :style="{margin:'0 21px'}">
-        <van-field v-model="" type="password" name="密码" label="" :placeholder="$t('login.PromptOfPassWord')" :rules="[{ required: true, message: $t('login.PromptOfPassWord') }]" />
+        <van-field
+            v-model="loginForm.password"
+            type="password"
+            name="password"
+            :placeholder="$t('login.PromptOfPassWord')"
+            :rules="[{ required: true, message: $t('login.passwordError') }]"
+        />
       </van-cell-group>
+      </van-form>
       <p class="forget-pass">
         <span  @click="forgetPassword">{{$t('login.forgetPassword')}}</span>
       </p>
@@ -30,8 +43,8 @@
 
 <script setup>
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
-import LangBar from "@/common/components/base/langBar.vue";
-import {useRouter, ref, reactive} from 'vue-router'
+import {useRouter} from 'vue-router'
+import {ref, reactive} from 'vue'
 
 const router = useRouter()
 
@@ -39,6 +52,11 @@ let loginForm = reactive({
   username: "",
   password: ""
 })
+const onFailed = () => {}
+// 错误提示
+const accountErrorPromt = () => {}
+const passwordErrorPrompt = () => {}
+// const rulesAccount = (msg) => accountPromt
 const forgetPassword = () => {
   router.push({
     path: '/retrievePassword'
@@ -59,6 +77,7 @@ const goRegister = () => {
   font-size: 16px;
   color: rgb(209, 208, 207);
   text-align: right;
+  z-index: 3;
 }
 .login-top {
   height: 217px;
@@ -74,6 +93,7 @@ const goRegister = () => {
 }
 :deep(.van-cell-group) {
   background-color: #1c1c1c;
+  border-radius: 6px;
   padding: 0;
   border: none;
 }
@@ -86,6 +106,9 @@ const goRegister = () => {
   background-color: #1c1c1c;
   .van-field__control {
     color: rgb(209, 208, 207);
+  }
+  .van-field__control::placeholder {
+    color: #616161;
   }
 }
 :deep(.login-btn) {

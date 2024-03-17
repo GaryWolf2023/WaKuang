@@ -1,5 +1,5 @@
 <template>
-  <div class="header-bar">
+  <div :class="['header-bar', setHeaderOpacity?'is-opacity':'']">
     <slot name="front">
       <div class="back" @click="$router.back()">
         <img src="../../../assets/common/svg/left-arrow.svg" alt="left-arrow" style="font-size: 8px" />
@@ -19,10 +19,15 @@
 </template>
 
 <script setup>
+import {computed} from 'vue'
+import {useRoute} from 'vue-router'
 const props = defineProps({
   title: String,
   hidBack: Boolean
 })
+
+const route = useRoute()
+const setHeaderOpacity = computed(() => route.meta.layout === "auth")
 
 // style
 const hidden = props.hidBack ? "hidden" : "visible"
@@ -32,7 +37,9 @@ const hidden = props.hidBack ? "hidden" : "visible"
 
 <style lang="scss" >
 @import "@/style/var";
-
+.is-opacity {
+  background-color: rgba(0,0,0,0) !important;
+}
 .header-bar {
   padding: 8px 16px;
   display: flex;

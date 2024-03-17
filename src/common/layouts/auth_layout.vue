@@ -1,5 +1,5 @@
 <template>
-  <Wrapper :title="props.title" :hid-tab-bar="props.hidTabBar" :hid-head-bar="props.hidHeadBar">
+  <Wrapper :title="props.title" :hid-tab-bar="props.hidTabBar" :hid-head-bar="props.hidHeadBar" class="auth-layout">
     <template v-for="(index, name) in $slots" v-slot:[name] :key="index">
       <slot :name="name" />
     </template>
@@ -17,4 +17,10 @@ const props = defineProps({
 
 </script>
 
-<style></style>
+<style lang="scss">
+.auth-layout {
+  background-image: url("src/assets/common/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 123px;
+}
+</style>

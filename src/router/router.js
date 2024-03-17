@@ -1,4 +1,6 @@
 import {createRouter, createWebHashHistory} from "vue-router";
+import {useUserStore} from '@/pinia/modules/user.js'
+import {login} from '@/api/user.js'
 
 // Profile
 const Profile = () => import("../pages/profile/profile.vue")
@@ -52,7 +54,15 @@ const router = createRouter({
     ],
 })
 
+// 应该有一个请求先获取token然后每次页面跳转会向后端请求然后对比token，token为空或者不同则需要重新返回登陆页面
 router.beforeEach((to, from) => {
+    const userStore = useUserStore()
+    if (to.name !== '/login') {
+        console.log(userStore.token)
+        if(!userStore.token) {
+            return false
+        }
+    }
     return true;
 });
 

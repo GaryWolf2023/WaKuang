@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user',{
    state: () => ({
       userinfo: {},
-      token: '',
+      token: '123123123123123123123',
    }),
    actions: {
       async login(form) {
