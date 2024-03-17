@@ -28,12 +28,7 @@
             <rect id="矩形" x="7.000000" y="1.533051" width="44.000000" height="1.000000" fill="url(#paint_linear_1_317_0)" fill-opacity="1.000000"/>
           </svg>
         </div>
-        <div class="machine-list">
-          <div class="machine-item" v-for="(item, index) in machineList" :key="index">
-            <span class="machine-name">{{item.name}}</span>
-            <span class="expired-time">{{item.expiredTime}}</span>
-          </div>
-        </div>
+        <CusSwiper :list="machineList" />
       </div>
       <div class="buy-machine">
         <img src="../../assets/pages/mining_banner.png" alt="buy machine" style="font-size: 8px" />
@@ -47,18 +42,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import CusSwiper from "@/common/components/animation/CusSwiper.vue";
+
+import { ref } from 'vue'
 import {useI18n} from "vue-i18n";
+
+
 const { t } =  useI18n()
 const title = t("mining.platformName")
-
 const machineList = ref([])
 
 machineList.value = [
   {name: "Bitmain", expiredTime: "6 Day 4 Hour"},
   {name: "CanaanCanaan", expiredTime: "6 Day 4 Hour"},
   {name: "Innosilicon", expiredTime: "6 Day 4 Hour"},
+  {name: "Ebang", expiredTime: "6 Day 4 Hour"},
+  {name: "Ebang", expiredTime: "6 Day 4 Hour"},
+  {name: "Ebang", expiredTime: "6 Day 4 Hour"},
   {name: "Ebang", expiredTime: "6 Day 4 Hour"},
 ]
 

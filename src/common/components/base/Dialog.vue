@@ -1,6 +1,6 @@
 <template>
   <div class="dialog">
-    <van-dialog v-model:show="show" :showConfirmButton="false">
+    <van-dialog v-model:show="show" :showConfirmButton="false" width="75%">
       <template v-slot:title>
         <div class="dialog-header" v-if="showHeader">
           <span style="width: 14px"></span>
@@ -49,6 +49,8 @@ const handleClose = () => {
 <style lang="scss" scoped>
 :deep(.van-dialog) {
   background-image: url("../../../assets/common/card-bg.png");
+  background-position: 0 0;
+  background-size: 100%;
   .van-dialog__header {
     padding: 0;
   }
