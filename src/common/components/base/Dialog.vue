@@ -10,6 +10,8 @@
       </template>
       <div class="dialog-content">
         <slot></slot>
+        <slot name="action">
+        </slot>
       </div>
     </van-dialog>
   </div>

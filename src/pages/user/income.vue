@@ -19,8 +19,14 @@
             class="list"
         >
           <div class="income-item" v-for="(item, index) in list" :key="index">
-            <p>1********9@qq.com</p>
-            <p>2024.01.01 12:05:04</p>
+            <div>
+              <p>1********9@qq.com</p>
+              <p>2024.01.01 12:05:04</p>
+            </div>
+            <div style="font-size:12px; color: #727272; margin-top: 6px">
+              <p>一代 (1*********@**m)，獎勵1000.00</p>
+              <p>2024.03.08</p>
+            </div>
           </div>
         </van-list>
       </div>
@@ -75,12 +81,14 @@ const onLoad = () => {
       display: grid;
       grid-gap: 10px;
       .income-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         border-radius: 10px;
         background-color: $input-bg;
         padding: 16px 14px;
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
       }
     }
   }

@@ -9,6 +9,10 @@
     "action": {
       "cancel": "取消",
       "confirm": "确认"
+    },
+    "data": {
+      "noMore": "沒有更多了",
+      "loading": "載入中..."
     }
   },
   "login": {
@@ -90,7 +94,11 @@
   },
   "user": {
     "machine": {
-      "title": "我的矿机"
+      "title": "我的矿机",
+      "orderId": "訂單號碼",
+      "orderStatus_1": "計算中",
+      "orderStatus_2": "已失效",
+      "buyTime": "購買時間"
     },
     "team": {
       "tabs": {
@@ -114,6 +122,20 @@
     }
   },
   "profile": {
-
+    "exchange": {
+      "exchange": {
+        "coin": "幣種",
+        "referencePrice": "參考價格",
+        "expend": "花費USDT"
+      },
+      "hmt": {
+        "net": "網路",
+        "walletAddress": "錢包地址",
+        "number": "數量",
+        "acceptAddress": "接受地址",
+        "fee": "手續費",
+        "realArrival": "實際到帳"
+      }
+    }
   }
 }
