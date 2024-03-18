@@ -1,6 +1,6 @@
 <template>
   <Layout_imp :title="$t('user.feedback.title')">
-    <p :class="['page-box','title']">{{$t('user.feedback.content')}}</p>
+    <p :class="['page-box','title','title-common']">{{$t('user.feedback.content')}}</p>
     <div :class="['page-box', 'box-bc', 'feedback-content']">
       <van-field
           v-model="content"
@@ -13,7 +13,7 @@
       />
     </div>
     <div :class="['page-box','img-prompt']">
-      <span>{{$t('user.feedback.updateImg')}}</span>
+      <span :class="['title-common']">{{$t('user.feedback.updateImg')}}</span>
       <span class="small-prompt">{{$t('user.feedback.uploadLimit')}}</span>
     </div>
     <div :class="['page-box', 'box-bc', 'img-box']" >
@@ -44,10 +44,12 @@ const uploadFeedback = () => {}
 .box-bc {
   background-color: #1C1C1C;
 }
-.title {
-  margin: 10px 16px;
+.title-common {
   font-size: 15px;
   color: #D1D0CF;
+}
+.title {
+  margin: 10px 16px;
 }
 .img-prompt {
   margin: 20px 16px 10px;
@@ -61,6 +63,19 @@ const uploadFeedback = () => {}
 .img-box {
   padding: 16px 16px 14px;
   border-radius: 6px;
+  :deep(.van-uploader) {
+    .van-uploader__upload {
+      border-radius: 4px;
+      background-color: #2B2B2B;
+      .van-icon {
+        color: #616161;
+        font-size: 22px;
+      }
+    }
+    .van-uploader__preview-image {
+      border-radius: 4px;
+    }
+  }
 }
 :deep(.van-button-confirm) {
   height: 46px;
@@ -75,6 +90,9 @@ const uploadFeedback = () => {}
     background-color: #1c1c1c;
     padding: 10px 14px;
     //color: #616161;
+    .van-field__control::placeholder {
+      color: #616161;
+    }
   }
 }
 

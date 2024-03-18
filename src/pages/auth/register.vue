@@ -92,6 +92,9 @@ const startCountDown = () => {
     .van-field__control {
       color: rgb(209, 208, 207);
     }
+    .van-field__control::placeholder {
+      color: #616161;
+    }
     .code-btn {
       position: absolute;
       top: 8px;

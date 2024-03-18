@@ -1,6 +1,6 @@
 <template>
   <main class="main base-wrapper">
-    <header ref="header" class="footer" :class="footerFix ? 'header_fixed' : 'header_normal' ">
+    <header ref="header" class="footer" :class="[footerFix ? 'header_fixed' : 'header_normal']">
       <slot name="header">
         <div class="header-content">
           <HeadBar v-if="!props.hidHeadBar" :hidBack="props.hidBack" :title="props.title" />
@@ -22,7 +22,8 @@
 
 <script setup>
 import TabBar from "./tab-bar.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
+import {useRoute} from 'vue-router'
 import HeadBar from "@/common/layouts/base/head-bar.vue";
 const props = defineProps({
   footerFix: {
@@ -47,6 +48,7 @@ const header = ref(null)
 const footerHeight = ref("")
 const headerHeight = ref("")
 
+
 onMounted(() => {
     footerHeight.value = `${footer.value.clientHeight}px`;
     headerHeight.value = `${header.value.clientHeight}px`;
@@ -69,6 +71,7 @@ onMounted(() => {
   }
   .content {
     margin: 10px;
+    position: relative;
   }
   .footer {
     &_fixed {

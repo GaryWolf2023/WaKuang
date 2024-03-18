@@ -9,10 +9,18 @@
     "action": {
       "cancel": "取消",
       "confirm": "确认"
+    },
+    "data": {
+      "min": "最小",
+      "max": "最大",
+      "noMore": "没有更多了",
+      "loading": "加载中..."
     }
   },
   "login": {
     "PromptOfUser": "请输入帐号",
+    "accountError": "账号错误",
+    "passwordError": "密码错误",
     "PromptOfPassWord": "请输入密码",
     "login": "登录",
     "forgetPassword": "忘记密码",
@@ -90,7 +98,11 @@
   },
   "user": {
     "machine": {
-      "title": "我的矿机"
+      "title": "我的矿机",
+      "orderId": "订单号",
+      "orderStatus_1": "计算中",
+      "orderStatus_2": "已失效",
+      "buyTime": "购买时间"
     },
     "team": {
       "tabs": {
@@ -113,6 +125,20 @@
     }
   },
   "profile": {
-
+    "exchange": {
+      "exchange": {
+        "coin": "币种",
+        "referencePrice": "参考价格",
+        "expend": "花费USDT"
+      },
+      "hmt": {
+        "net": "网络",
+        "walletAddress": "钱包地址",
+        "number": "数量",
+        "acceptAddress": "接受地址",
+        "fee": "手续费",
+        "realArrival": "实际到账"
+      }
+    }
   }
 }

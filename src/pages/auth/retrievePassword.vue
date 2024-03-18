@@ -2,7 +2,7 @@
   <Layout_imp :hid-tab-bar="true" :title="$t('forgetPassword.retrievePassword')">
     <div class="register-form">
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('forgetPassword.accountPrompt')"/>
+        <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('forgetPassword.accountPrompt')" @blur="getUserOnfo"/>
       </van-cell-group>
       <van-cell-group inset>
         <van-field class="change-style" v-model="registerForm.mail" :placeholder="$t('forgetPassword.emailPrompt')" />
@@ -34,8 +34,6 @@ import {ref, reactive} from 'vue'
 
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 
-let onePassword = ref('password')
-let twoPassword = ref('password')
 let isActive = ref(false)
 let registerForm = reactive({
   account: '',
@@ -50,6 +48,7 @@ let endTime = ref(0)    //倒计时结束时间
 let countDown = ref(59) //倒计时总数
 let showSecond = ref(1) //表显
 let precision = ref(30) //精度
+// 倒计时
 const startCountDown = () => {
   if (isActive.value) {
     return
@@ -69,6 +68,9 @@ const startCountDown = () => {
       clearInterval(timer)
     }
   }, 20)
+}
+const getUserOnfo = () => {
+  // 输入账号后获取账号的相关信息
 }
 </script>
 
@@ -90,6 +92,9 @@ const startCountDown = () => {
     background-color: #1c1c1c;
     .van-field__control {
       color: rgb(209, 208, 207);
+    }
+    .van-field__control::placeholder {
+      color: #616161;
     }
     .code-btn {
       position: absolute;

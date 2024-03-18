@@ -16,8 +16,12 @@
               <p style="font-size: 16px;font-weight: 700">{{ coin.balance }}</p>
             </div>
             <div class="item-footer">
-              <button class="button in" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">{{ coin.type !== 'HMT' ? $t('my.rollIn') : $t('my.buy') }}</button>
-              <button class="button out" @click="handleAction(coin.type !== 'HMT' ? 'roll_out' : 'sell', coin)">{{ coin.type !== 'HMT' ? t('my.rollOut') : $t('my.sell') }}</button>
+              <button class="button in" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">
+                {{ coin.type !== 'HMT' ? $t('my.rollIn') : $t('my.buy') }}
+              </button>
+              <button class="button out" @click="handleAction(coin.type !== 'HMT' ? 'roll_out' : 'sell', coin)">
+                {{ coin.type !== 'HMT' ? t('my.rollOut') : $t('my.sell') }}
+              </button>
             </div>
           </div>
           <div v-show="index !== coinList.length - 1" class="divider"
@@ -46,7 +50,84 @@
             :title="title"
             :info="coinInfo"
             @close="handleCloseDialog">
-      <div></div>
+      <div class="exchange-content">
+        <div v-if="type === 'roll_in'" class="item item-hmt">
+          <div class="info">
+            <p>
+              <span>{{ $t('profile.exchange.exchange.coin') }}</span>
+              <span>USDT</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.hmt.net') }}</span>
+              <span>BNB Chain (BEP20)</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.hmt.walletAddress') }}</span>
+              <span>fanyi.baidu.com</span>
+            </p>
+          </div>
+          <div class="tip">
+            此地址僅支持BNB (BSC)鏈轉帳，請勿通過其他網絡轉入，否則將導致資產遺失！
+          </div>
+        </div>
+        <div v-if="type === 'roll_out'" class="item item-hmt">
+          <div class="tip">
+            此地址僅支持BNB (BSC)鏈轉帳，請勿通過其他網絡轉入，否則將導致資產遺失！
+          </div>
+          <div class="info">
+            <p>
+              <span>{{ $t('profile.exchange.exchange.coin') }}</span>
+              <span>USDT</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.hmt.net') }}</span>
+              <span>BNB Chain (BEP20)</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.hmt.walletAddress') }}</span>
+              <span>手續費0.1%</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.hmt.realArrival') }}</span>
+              <span>1110.00</span>
+            </p>
+          </div>
+        </div>
+        <div v-if="type === 'buy'" class="item item-exchange">
+          <div class="info">
+            <p>
+              <span>{{ $t('profile.exchange.exchange.coin') }}</span>
+              <span>HMT</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.exchange.referencePrice') }}</span>
+              <span>$1110.11</span>
+            </p>
+          </div>
+          <div class="input"></div>
+        </div>
+        <div v-if="type === 'sell'" class="item item-exchange">
+          <div class="info">
+            <p>
+              <span>{{ $t('profile.exchange.exchange.coin') }}</span>
+              <span>HMT</span>
+            </p>
+            <p>
+              <span>{{ $t('profile.exchange.exchange.referencePrice') }}</span>
+              <span>$1110.11</span>
+            </p>
+          </div>
+          <div class="input"></div>
+        </div>
+      </div>
+      <template v-slot:action>
+        <div class="action-button" @click="handleExchange(type)">
+          <div v-if="buttonLoading" style="height: 20px;">
+            <img class="loading" src="../../assets/common/svg/loading_1.svg" alt="loading" style="font-size: 8px;"/>
+          </div>
+          <span v-else>{{ $t('common.action.confirm') }}</span>
+        </div>
+      </template>
     </Dialog>
 
     <!--  LangBar  -->
@@ -72,7 +153,7 @@ import {computed, ref, watch} from "vue";
 import Dialog from "@/common/components/base/Dialog.vue";
 import LangBar from "@/common/components/base/LangBar.vue";
 
-const { t } = useI18n()
+const {t} = useI18n()
 const menuList = computed(() => [
   {title: t("my.myMiner"), path: "/user/machine", icon: icon1},
   {title: t("my.myEarning"), path: "/user/income", icon: icon2},
@@ -92,6 +173,7 @@ const showDialog = ref(false)
 const showLang = ref(false)
 const type = ref("")
 const coinInfo = ref(null)
+const buttonLoading = ref(false)
 
 const handleClick = (actionType) => {
   switch (actionType) {
@@ -116,6 +198,7 @@ const title = computed(() => {
 })
 
 
+// ele
 const handleAction = (actionType, coin) => {
   type.value = actionType ? actionType : "roll_in"
   coinInfo.value = coin
@@ -128,6 +211,16 @@ const handleCloseDialog = (show) => {
 
 const handleCloseLang = (show) => {
   showLang.value = show
+}
+
+
+// req
+const handleExchange = (exchangeType) => {
+  buttonLoading.value = true
+  setTimeout(() => {
+    buttonLoading.value = false
+    showDialog.value = false
+  }, 1500)
 }
 
 </script>
@@ -207,11 +300,60 @@ const handleCloseLang = (show) => {
   padding: 3px 18px;
   font-size: 12px;
   color: #FFFFFF;
+
   &.in {
     background-color: #003568;
   }
+
   &.out {
     background-color: #F84747;
+  }
+}
+
+.exchange-content {
+  .item {
+    .info {
+      font-size: 14px;
+      display: grid;
+      grid-gap: 10px;
+
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .tip {
+      font-size: 13px;
+      color: #727272;
+      margin: 8px 0px;
+    }
+  }
+
+  .item-exchange {
+
+  }
+}
+
+.action-button {
+  position: relative;
+  color: #1E1E1E;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  padding: 12px 0;
+  background-color: $primary-color;
+  text-align: center;
+  margin-top: 22px;
+
+  .loading {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 

@@ -9,6 +9,10 @@
     "action": {
       "cancel": "cancel",
       "confirm": "confirm"
+    },
+    "data": {
+      "noMore": "No more",
+      "loading": "Loading..."
     }
   },
   "login": {
@@ -90,7 +94,11 @@
   },
   "user": {
     "machine": {
-      "title": "My mining machine"
+      "title": "My mining machine",
+      "orderId": "order number",
+      "orderStatus_1": "Calculating",
+      "orderStatus_2": "Expired",
+      "buyTime": "Buy Time"
     },
     "team": {
       "tabs": {
@@ -102,9 +110,32 @@
     },
     "income": {
       "headTitle": "Accumulated earnings"
+    },
+    "feedback": {
+      "title": "意見回饋",
+      "content": "迴響內容",
+      "areaPrompt": "請輸入迴響內容",
+      "updateImg": "上傳圖片",
+      "uploadLimit": "（最多可上傳6張）",
+      "submitEcho": "提交迴響",
+      "headTitle": "累积收益"
     }
   },
   "profile": {
-
+    "exchange": {
+      "exchange": {
+        "coin": "currency",
+        "referencePrice": "reference price",
+        "expend": "Expend USDT"
+      },
+      "hmt": {
+        "net": "network",
+        "walletAddress": "wallet address",
+        "number": "quantity",
+        "acceptAddress": "AcceptAddress",
+        "fee": "handling fee",
+        "realArrival": "Actual arrival"
+      }
+    }
   }
 }
