@@ -17,10 +17,26 @@
         </van-field>
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.password" type="password" :placeholder="$t('forgetPassword.resetPassword')" />
+        <van-field
+            class="change-style"
+            v-model="registerForm.password"
+            :type="!showOnePass?'password':'text'"
+            :placeholder="$t('forgetPassword.resetPassword')"
+            :right-icon="showOnePass?'eye-o':'closed-eye'"
+            @click-right-icon="showOnePass=!showOnePass"
+        >
+        </van-field>
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.confirmPassword" type="password" :placeholder="$t('forgetPassword.confirmPassword')" />
+        <van-field
+            class="change-style"
+            v-model="registerForm.confirmPassword"
+            :placeholder="$t('forgetPassword.confirmPassword')"
+            :type="!showTwoPass?'password':'text'"
+            :right-icon="showTwoPass?'eye-o':'closed-eye'"
+            @click-right-icon="showTwoPass=!showTwoPass"
+        >
+        </van-field>
       </van-cell-group>
       <van-cell-group inset :style="{marginTop:'40px'}">
         <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('forgetPassword.retrievePassword')}}</van-button>
@@ -42,6 +58,8 @@ let registerForm = reactive({
   password:"",
   confirmPassword:''
 })
+let showOnePass = ref(false)
+let showTwoPass = ref(false)
 let startTime = ref(0)  // 开始时间
 let nowTime = ref(0)    // 循环记录当前时间
 let endTime = ref(0)    //倒计时结束时间
@@ -76,7 +94,7 @@ const getUserOnfo = () => {
 
 <style lang="scss" scoped>
 .register-form {
-  margin-top: 82px;
+  margin-top: 124px;
   font-size: 16px;
   :deep(.van-cell-group) {
     background-color: #1c1c1c;
@@ -114,6 +132,13 @@ const getUserOnfo = () => {
     .active-btn {
       border: 1px solid	rgb(102, 224, 255);
       color: rgb(102, 224, 255);
+    }
+    .van-field__right-icon {
+      height: 46px;
+      //width: 18px;
+      margin: 0 17px 0 0;
+      line-height: 46px;
+      font-size: 18px !important;
     }
   }
   :deep(.van-button) {

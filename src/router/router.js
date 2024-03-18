@@ -27,7 +27,6 @@ const router = createRouter({
             path: "/",
             redirect: "/mining",
             children: [
-
                 // Mining
                 { path: "/mining", meta: { layout: "main" }, component: Mining},
                 { path: "/mining/buy", meta: { layout: "main" }, component: MiningBuy},

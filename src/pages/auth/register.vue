@@ -5,7 +5,7 @@
         <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('register.accountPrompt')"/>
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.mail" :placeholder="$t('register.emailPrompt')" />
+        <van-field class="change-style" v-model="handelMail" :placeholder="$t('register.emailPrompt')" />
       </van-cell-group>
       <van-cell-group inset>
         <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('register.verificationCode')">
@@ -17,25 +17,51 @@
         </van-field>
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.password" type="password" :placeholder="$t('register.password')" />
+        <van-field
+            class="change-style"
+            v-model="registerForm.password"
+            type="password"
+            :placeholder="$t('register.password')"
+            :right-icon="showOnePass?'eye-o':'closed-eye'"
+            @click-right-icon="showOnePass=!showOnePass"
+        />
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.confirmPassword" type="password" :placeholder="$t('register.confirmPassword')" />
+        <van-field
+            class="change-style"
+            v-model="registerForm.confirmPassword"
+            type="password"
+            :placeholder="$t('register.confirmPassword')"
+            :right-icon="showTwoPass?'eye-o':'closed-eye'"
+            @click-right-icon="showTwoPass=!showTwoPass"
+        />
       </van-cell-group>
       <van-cell-group inset :style="{marginTop:'40px'}">
         <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('register.createAccount')}}</van-button>
       </van-cell-group>
     </div>
+    <Dialog :showDialog="showDialog" :showHeader="false">
+      <div>
+        <img src="../../assets/common/operate_fai.png" alt="">
+        <div>{{ dialogInfo }}</div>
+      </div>
+    </Dialog>
   </Layout_imp>
 </template>
 
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, watch, computed} from 'vue'
 
+import Dialog from "@/common/components/base/Dialog.vue"
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import {ProcessMail} from "@/common/utils/stringHandling.js"
 
-let onePassword = ref('password')
-let twoPassword = ref('password')
+let showDialog = ref(true)
+let dialogInfo = ref("123123123")
+let dialogStatus = ref(false)
+let imgsrc = computed(() => {
+  return dialogStatus.value?'/src/assets/common/svg/operate_suc.png':'/src/assets/common/svg/operate_fai.png'
+})
 let isActive = ref(false)
 let registerForm = reactive({
   account: '',
@@ -44,6 +70,17 @@ let registerForm = reactive({
   password:"",
   confirmPassword:''
 })
+let handelMail = computed(() => {
+  if(!!registerForm.mail) {
+    return ProcessMail(registerForm.mail)
+  }else{
+    return ''
+  }
+})
+// 控制眼睛
+let showOnePass = ref(false)
+let showTwoPass = ref(false)
+
 let startTime = ref(0)  // 开始时间
 let nowTime = ref(0)    // 循环记录当前时间
 let endTime = ref(0)    //倒计时结束时间
@@ -74,7 +111,7 @@ const startCountDown = () => {
 
 <style lang="scss" scoped>
 .register-form {
-  margin-top: 82px;
+  margin-top: 124px;
   font-size: 16px;
   :deep(.van-cell-group) {
     background-color: #1c1c1c;
@@ -112,6 +149,13 @@ const startCountDown = () => {
     .active-btn {
       border: 1px solid	rgb(102, 224, 255);
       color: rgb(102, 224, 255);
+    }
+    .van-field__right-icon {
+      height: 46px;
+      //width: 18px;
+      margin: 0 17px 0 0;
+      line-height: 46px;
+      font-size: 18px !important;
     }
   }
   :deep(.van-button) {
