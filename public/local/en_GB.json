@@ -34,7 +34,9 @@
     "password": "Login password",
     "confirmPassword": "Confirm password",
     "createAccount": "CREATE ACCOUNT",
-    "resend": "Resend"
+    "resend": "Resend",
+    "registerSuc": "success",
+    "registerFai": "fail"
   },
   "forgetPassword": {
     "retrievePassword": "Retrieve password",
@@ -44,7 +46,9 @@
     "getVerificationCode": "Obtain",
     "resetPassword": "Reset password",
     "confirmPassword": "Confirm password",
-    "resend": "Resend"
+    "resend": "Resend",
+    "resetSuc": "success",
+    "resetFai": "fail"
   },
   "mining": {
     "platformName": "Platform Name",

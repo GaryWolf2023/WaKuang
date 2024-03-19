@@ -34,7 +34,9 @@
     "password": "登录密码",
     "confirmPassword": "确认密码",
     "createAccount": "创建帐号",
-    "resend": "重新发送"
+    "resend": "重新发送",
+    "registerSuc": "注册成功",
+    "registerFai": "注册失败"
   },
   "forgetPassword": {
     "retrievePassword": "找回密码",
@@ -44,7 +46,9 @@
     "getVerificationCode": "获取验证码",
     "resetPassword": "重置密码",
     "confirmPassword": "确认密码",
-    "resend": "重新发送"
+    "resend": "重新发送",
+    "resetSuc": "更改成功",
+    "resetFai": "更改失败"
   },
   "mining": {
     "platformName": "平台名称",

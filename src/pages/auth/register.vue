@@ -41,9 +41,11 @@
       </van-cell-group>
     </div>
     <Dialog :showDialog="showDialog" :showHeader="false">
-      <div>
-        <img src="../../assets/common/operate_fai.png" alt="">
-        <div>{{ dialogInfo }}</div>
+      <div class="dialog-lby">
+        <img class="img-show-suc img-show" v-if="dialogStatus" src="../../assets/common/operate_suc.png" alt="">
+        <img class="img-show-fai img-show" v-else src="../../assets/common/operate_fai.png" alt="">
+        <div class="info">{{ dialogInfo }}</div>
+<!--        <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('common.action.confirm')}}</van-button>-->
       </div>
     </Dialog>
   </Layout_imp>
@@ -57,7 +59,7 @@ import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {ProcessMail} from "@/common/utils/stringHandling.js"
 
 let showDialog = ref(true)
-let dialogInfo = ref("123123123")
+let dialogInfo = ref("注册成功，即将跳转至登陆页面")
 let dialogStatus = ref(false)
 let imgsrc = computed(() => {
   return dialogStatus.value?'/src/assets/common/svg/operate_suc.png':'/src/assets/common/svg/operate_fai.png'
@@ -163,6 +165,40 @@ const startCountDown = () => {
     font-size: 16px;
     color: rgb(18, 17, 15);
     border: none;
+  }
+
+}
+:deep(.van-dialog) {
+  .dialog-content {
+    padding: 0;
+  }
+  .dialog-lby {
+    width: 100%;
+    .img-show {
+      display: inline-block;
+    }
+    .img-show-suc {
+      height: 53px;
+      width: 59px;
+      margin-left: calc(50% - 30px);
+      margin-top: 41.71px;
+    }
+    .img-show-fai {
+      height: 50px;
+      width: 50px;
+      margin-left: calc(50% - 25px);
+      margin-top: 45px;
+    }
+    .info {
+      margin-top: 12.29px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .van-button {
+      height: 46px;
+      width: 236px !important;
+      margin: 23px 22px 24px;
+    }
   }
 }
 </style>

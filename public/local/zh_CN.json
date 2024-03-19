@@ -38,7 +38,9 @@
     "password": "登录密码",
     "confirmPassword": "确认密码",
     "createAccount": "创建帐号",
-    "resend": "重新发送"
+    "resend": "重新发送",
+    "registerSuc": "注册成功",
+    "registerFai": "注册失败"
   },
   "forgetPassword": {
     "retrievePassword": "找回密码",
