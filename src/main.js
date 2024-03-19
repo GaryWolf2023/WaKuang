@@ -15,11 +15,13 @@ import { myPlugins } from "./common/plugins/index.js"
 import { i18n } from "./common/utils/i18n.js";
 import router from "./router/router.js"
 import { createPinia } from "pinia"
+import { Icon } from 'vant';
 
 const pinia = createPinia()
 const app = createApp(App)
 
 // use vendor
+app.use(Icon)
 app.use(i18n)
 app.use(router)
 app.use(pinia)

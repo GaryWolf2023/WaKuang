@@ -17,7 +17,7 @@ export const ProcessMail = (mailString) => {
     const [username, domain] = mailString.split('@');  
     let replaceCount = username.length - 2; // 保留首字符和尾字符
     // 创建替换后的用户名部分
-    const maskedUsername = username.slice(0) + '*'.repeat(replaceCount) + username.slice(-1); // 保留最后一个字符
+    const maskedUsername = username.split('')[0] + '*'.repeat(replaceCount) + username.slice(-1); // 保留最后一个字符
   
     // 返回替换后的电子邮件地址  
     return maskedUsername + '@' + domain;

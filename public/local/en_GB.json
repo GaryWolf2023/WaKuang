@@ -16,35 +16,35 @@
     }
   },
   "login": {
-    "PromptOfUser": "Please enter your account number",
-    "PromptOfPassWord": "Please enter password",
-    "login": "login",
+    "PromptOfUser": "Accounts",
+    "PromptOfPassWord": "Password",
+    "login": "LOGIN",
     "forgetPassword": "Forgot password",
-    "registerAccount": "Register Account",
+    "registerAccount": "Register an account",
     "changeLanguage1": "Chinese",
     "changeLanguage2": "English",
     "changeLanguage3": "Simplified Chinese"
   },
   "register": {
     "pageTitle": "Create account",
-    "accountPrompt": "Please enter your login account",
-    "emailPrompt": "Please enter the binding email address",
+    "accountPrompt": "Login account",
+    "emailPrompt": "Bind email",
     "verificationCode": "Email verification code",
-    "getVerificationCode": "Get verification code",
+    "getVerificationCode": "Obtain",
     "password": "Login password",
     "confirmPassword": "Confirm password",
-    "createAccount": "Create account",
-    "resend": "resend"
+    "createAccount": "CREATE ACCOUNT",
+    "resend": "Resend"
   },
   "forgetPassword": {
     "retrievePassword": "Retrieve password",
-    "accountPrompt": "Please enter your login account",
-    "emailPrompt": "Please enter the binding email address",
+    "accountPrompt": "Login account",
+    "emailPrompt": "Bind email",
     "verificationCode": "Email verification code",
-    "getVerificationCode": "Get verification code",
+    "getVerificationCode": "Obtain",
     "resetPassword": "Reset password",
     "confirmPassword": "Confirm password",
-    "resend": "resend"
+    "resend": "Resend"
   },
   "mining": {
     "platformName": "Platform Name",
