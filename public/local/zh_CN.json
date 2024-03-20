@@ -115,7 +115,9 @@
       }
     },
     "income": {
-      "headTitle": "累积收益"
+      "headTitle": "累积收益",
+      "beginTime": "开始日期",
+      "endTime": "截止日期"
     },
     "feedback": {
       "title": "意見回饋",

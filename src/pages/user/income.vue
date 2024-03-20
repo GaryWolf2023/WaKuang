@@ -9,6 +9,8 @@
     </div>
     <div class="income-list">
       <div class="search-header">
+        <DatePick :title="$t('user.income.beginTime')" />
+        <DatePick :title="$t('user.income.endTime')" />
       </div>
       <div class="list-content">
         <van-list
@@ -38,6 +40,7 @@
 
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {ref} from "vue";
+import DatePick from "@/common/components/base/DatePick.vue";
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
@@ -76,6 +79,12 @@ const onLoad = () => {
 }
 .income-list {
   margin-top: 10px;
+  .search-header {
+    margin: 13px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
   .list-content {
     .list {
       display: grid;

@@ -113,7 +113,9 @@
       }
     },
     "income": {
-      "headTitle": "Accumulated earnings"
+      "headTitle": "Accumulated earnings",
+      "beginTime": "Start date",
+      "endTime": "End date"
     },
     "feedback": {
       "title": "意見回饋",
