@@ -44,11 +44,11 @@ const actions = ref(handleActions(store.curLang))
 
 watch( () => props.showDrawer, (value) => {
   show.value = value
-})
+}, {immediate: true})
 
 watch(() => store.curLang, (value) => {
   actions.value = handleActions(value)
-})
+}, {immediate: true})
 
 
 

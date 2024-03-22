@@ -1,6 +1,10 @@
 {
   "confirm": "确认",
   "common": {
+    "status": {
+      "success": "成功",
+      "fail": "失败"
+    },
     "tabs": {
       "title1": "挖矿",
       "title2": "数据",

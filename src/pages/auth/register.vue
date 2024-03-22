@@ -37,15 +37,14 @@
         />
       </van-cell-group>
       <van-cell-group inset :style="{marginTop:'40px'}">
-        <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('register.createAccount')}}</van-button>
+        <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}" @click="createAccount">{{$t('register.createAccount')}}</van-button>
       </van-cell-group>
     </div>
     <Dialog :showDialog="showDialog" :showHeader="false">
       <div class="dialog-lby">
         <img class="img-show-suc img-show" v-if="dialogStatus" src="../../assets/common/operate_suc.png" alt="">
         <img class="img-show-fai img-show" v-else src="../../assets/common/operate_fai.png" alt="">
-        <div class="info">{{ dialogInfo }}</div>
-<!--        <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('common.action.confirm')}}</van-button>-->
+        <div class="info">{{ dialogStatus?$t('common.status.success'): $t('common.status.fail') }}</div>
       </div>
     </Dialog>
   </Layout_imp>
@@ -53,17 +52,25 @@
 
 <script setup>
 import {ref, reactive, watch, computed} from 'vue'
+import {useRouter} from 'vue-router'
 
 import Dialog from "@/common/components/base/Dialog.vue"
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {ProcessMail} from "@/common/utils/stringHandling.js"
 
-let showDialog = ref(true)
-let dialogInfo = ref("注册成功，即将跳转至登陆页面")
-let dialogStatus = ref(false)
-let imgsrc = computed(() => {
-  return dialogStatus.value?'/src/assets/common/svg/operate_suc.png':'/src/assets/common/svg/operate_fai.png'
+const router = useRouter()
+
+let showDialog = ref(false)
+let dialogStatus = ref(true)
+watch(showDialog, (v) => {
+  if (v) {
+    const timer = setTimeout(() => {
+      showDialog.value = false
+      clearTimeout(timer)
+    },2000)
+  }
 })
+
 let isActive = ref(false)
 let registerForm = reactive({
   account: '',
@@ -108,6 +115,19 @@ const startCountDown = () => {
       clearInterval(timer)
     }
   }, 20)
+}
+const createAccount = () => {
+  showDialog.value = true
+  dialogStatus.value = true
+  if(dialogStatus.value) {
+    const timer = setTimeout(() => {
+      showDialog.value = false
+      router.push({
+        path: '/login'
+      })
+      clearTimeout(timer)
+    },2000)
+  }
 }
 </script>
 

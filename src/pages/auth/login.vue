@@ -1,7 +1,7 @@
 <template>
     <Layout_imp :hid-tab-bar="true" :hidBack=true>
       <template v-slot:header>
-        <div class="reset-header">
+        <div class="reset-header" @click="showDrawer=true">
           中文
         </div>
       </template>
@@ -38,15 +38,23 @@
       <p class="register">
         <span @click="goRegister">{{$t('login.registerAccount')}}</span>
       </p>
+      <LangBar :show-drawer="showDrawer" @close="handleCloseLang"></LangBar>
     </Layout_imp>
 </template>
 
 <script setup>
-import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {useRouter} from 'vue-router'
 import {ref, reactive} from 'vue'
 
+import LangBar from "@/common/components/base/LangBar.vue";
+import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+
 const router = useRouter()
+
+let showDrawer = ref(false)
+const handleCloseLang = (val) => {
+  showDrawer.value = val
+}
 
 let loginForm = reactive({
   username: "",

@@ -1,6 +1,10 @@
 {
   "confirm": "confirm",
   "common": {
+    "status": {
+      "success": "success",
+      "fail": "fail"
+    },
     "tabs": {
       "title1": "Mining",
       "title2": "data",

@@ -5,7 +5,7 @@
         <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('forgetPassword.accountPrompt')" @blur="getUserOnfo"/>
       </van-cell-group>
       <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.mail" :placeholder="$t('forgetPassword.emailPrompt')" />
+        <van-field class="change-style" v-model="handelMail" :placeholder="$t('forgetPassword.emailPrompt')" />
       </van-cell-group>
       <van-cell-group inset>
         <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('forgetPassword.verificationCode')">
@@ -41,25 +41,56 @@
       <van-cell-group inset :style="{marginTop:'40px'}">
         <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('forgetPassword.retrievePassword')}}</van-button>
       </van-cell-group>
+      <Dialog :showDialog="showDialog" :showHeader="false">
+        <div class="dialog-lby">
+          <img class="img-show-suc img-show" v-if="dialogStatus" src="../../assets/common/operate_suc.png" alt="">
+          <img class="img-show-fai img-show" v-else src="../../assets/common/operate_fai.png" alt="">
+          <div class="info">{{ dialogStatus?$t('common.status.success'): $t('common.status.fail') }}</div>
+          <!--        <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('common.action.confirm')}}</van-button>-->
+        </div>
+      </Dialog>
     </div>
   </Layout_imp>
 </template>
 
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, watch, computed} from 'vue'
 
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import Dialog from "@/common/components/base/Dialog.vue";
+import {ProcessMail} from "@/common/utils/stringHandling.js";
+
+let showDialog = ref(false)
+let dialogStatus = ref(true)
+
+watch(showDialog, (v) => {
+  if (v) {
+    const timer = setTimeout(() => {
+      showDialog.value = false
+      clearTimeout(timer)
+    },2000)
+  }
+})
 
 let isActive = ref(false)
 let registerForm = reactive({
   account: '',
-  mail:'',
+  mail:'asdjhasvhdva@qq.com',
   code:'',
   password:"",
   confirmPassword:''
 })
 let showOnePass = ref(false)
 let showTwoPass = ref(false)
+
+let handelMail = computed(() => {
+  if(!!registerForm.mail) {
+    return ProcessMail(registerForm.mail)
+  }else{
+    return ''
+  }
+})
+
 let startTime = ref(0)  // 开始时间
 let nowTime = ref(0)    // 循环记录当前时间
 let endTime = ref(0)    //倒计时结束时间
