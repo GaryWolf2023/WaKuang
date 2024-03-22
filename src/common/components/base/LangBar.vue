@@ -7,6 +7,7 @@
         close-on-click-action
         @select="chooseLang"
         @cancel="onCancel"
+        @close="onCancel"
     />
   </div>
 </template>
@@ -43,12 +44,13 @@ const actions = ref(handleActions(store.curLang))
 
 
 watch( () => props.showDrawer, (value) => {
+  console.log(value)
   show.value = value
-})
+}, {immediate: true})
 
 watch(() => store.curLang, (value) => {
   actions.value = handleActions(value)
-})
+}, {immediate: true})
 
 
 
