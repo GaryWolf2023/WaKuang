@@ -1,44 +1,52 @@
 <template>
   <Layout_imp :hid-tab-bar="true" :title="$t('forgetPassword.retrievePassword')">
     <div class="register-form">
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('forgetPassword.accountPrompt')" @blur="getUserOnfo"/>
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.mail" :placeholder="$t('forgetPassword.emailPrompt')" />
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('forgetPassword.verificationCode')">
-          <template #button>
-            <van-button size="mini" plain hairline :class="['code-btn', isActive?'active-btn':'no-active-btn']" @click="startCountDown">
-              {{ !isActive ? $t('register.getVerificationCode'):$t('register.resend') }}{{ !isActive ? "" : "(" + showSecond + ")" }}
-            </van-button>
-          </template>
-        </van-field>
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field
-            class="change-style"
-            v-model="registerForm.password"
-            :type="!showOnePass?'password':'text'"
-            :placeholder="$t('forgetPassword.resetPassword')"
-            :right-icon="showOnePass?'eye-o':'closed-eye'"
-            @click-right-icon="showOnePass=!showOnePass"
-        >
-        </van-field>
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field
-            class="change-style"
-            v-model="registerForm.confirmPassword"
-            :placeholder="$t('forgetPassword.confirmPassword')"
-            :type="!showTwoPass?'password':'text'"
-            :right-icon="showTwoPass?'eye-o':'closed-eye'"
-            @click-right-icon="showTwoPass=!showTwoPass"
-        >
-        </van-field>
-      </van-cell-group>
-      <van-cell-group inset :style="{marginTop:'40px'}">
+      <van-form>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('forgetPassword.accountPrompt')" @blur="getUserInfo"/>
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="registerForm.mail" :placeholder="$t('forgetPassword.emailPrompt')" />
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('forgetPassword.verificationCode')">
+            <template #button>
+              <CountDown ref="countDown">
+                <template #showValue="{ value, active }">
+                  <van-button size="mini" plain hairline :class="['code-btn', active?'active-btn':'no-active-btn']" @click="startCountDown">
+                    {{ !active ? $t('register.getVerificationCode'):$t('register.resend') }}{{ !active ? "" : "(" + value + ")" }}
+                  </van-button>
+                </template>
+              </CountDown>
+            </template>
+          </van-field>
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field
+              class="change-style"
+              v-model="registerForm.password"
+              :type="!showOnePass ? 'password' : 'text'"
+              :placeholder="$t('forgetPassword.resetPassword')"
+              :right-icon="showOnePass?'eye-o':'closed-eye'"
+              @click-right-icon="showOnePass=!showOnePass"
+              autocomplete="off"
+          >
+          </van-field>
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field
+              class="change-style"
+              v-model="registerForm.confirmPassword"
+              :placeholder="$t('forgetPassword.confirmPassword')"
+              :type="!showTwoPass ? 'password' : 'text'"
+              :right-icon="showTwoPass?'eye-o':'closed-eye'"
+              @click-right-icon="showTwoPass=!showTwoPass"
+              autocomplete="off"
+          >
+          </van-field>
+        </van-cell-group>
+      </van-form>
+      <van-cell-group ref="count" inset :style="{marginTop:'40px'}">
         <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('forgetPassword.retrievePassword')}}</van-button>
       </van-cell-group>
     </div>
@@ -46,11 +54,10 @@
 </template>
 
 <script setup>
-import {ref, reactive} from 'vue'
 
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
-
-let isActive = ref(false)
+import CountDown from "@/common/components/base/CountDown.vue";
+import {reactive, ref} from "vue";
 let registerForm = reactive({
   account: '',
   mail:'',
@@ -60,37 +67,16 @@ let registerForm = reactive({
 })
 let showOnePass = ref(false)
 let showTwoPass = ref(false)
-let startTime = ref(0)  // 开始时间
-let nowTime = ref(0)    // 循环记录当前时间
-let endTime = ref(0)    //倒计时结束时间
-let countDown = ref(59) //倒计时总数
-let showSecond = ref(1) //表显
-let precision = ref(30) //精度
-// 倒计时
+let countDown = ref(null)
+
+const getUserInfo = () => {
+}
 const startCountDown = () => {
-  if (isActive.value) {
-    return
-  }
-  isActive.value = true
-  startTime.value = new Date().getTime()
-  endTime.value = startTime.value + countDown*1000
-  showSecond.value = countDown.value
-  let timer = setInterval(() => {
-    nowTime.value = new Date().getTime()
-    console.log( showSecond.value, "             ", (nowTime.value - startTime.value)%1000)
-    if ((nowTime.value - startTime.value)%1000 > (1000 - precision.value) || (nowTime.value - startTime.value)%1000 < precision.value) {
-      showSecond.value = countDown.value - Math.round((nowTime.value - startTime.value)/1000)
-    }
-    if (showSecond.value<=1) {
-      isActive.value = false
-      clearInterval(timer)
-    }
-  }, 20)
+  countDown.value.startCountDown()
 }
-const getUserOnfo = () => {
-  // 输入账号后获取账号的相关信息
-}
+
 </script>
+
 
 <style lang="scss" scoped>
 .register-form {

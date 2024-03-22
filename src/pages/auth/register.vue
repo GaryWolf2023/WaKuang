@@ -1,41 +1,49 @@
 <template>
   <Layout_imp :hid-tab-bar="true" :title="$t('register.pageTitle')">
     <div class="register-form">
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('register.accountPrompt')"/>
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="handelMail" :placeholder="$t('register.emailPrompt')" />
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('register.verificationCode')">
-          <template #button>
-            <van-button size="mini" plain hairline :class="['code-btn', isActive?'active-btn':'no-active-btns']" @click="startCountDown">
-              {{ !isActive ? $t('register.getVerificationCode'):$t('register.resend') }}{{ !isActive ? "" : "(" + showSecond + ")" }}
-            </van-button>
-          </template>
-        </van-field>
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field
-            class="change-style"
-            v-model="registerForm.password"
-            type="password"
-            :placeholder="$t('register.password')"
-            :right-icon="showOnePass?'eye-o':'closed-eye'"
-            @click-right-icon="showOnePass=!showOnePass"
-        />
-      </van-cell-group>
-      <van-cell-group inset>
-        <van-field
-            class="change-style"
-            v-model="registerForm.confirmPassword"
-            type="password"
-            :placeholder="$t('register.confirmPassword')"
-            :right-icon="showTwoPass?'eye-o':'closed-eye'"
-            @click-right-icon="showTwoPass=!showTwoPass"
-        />
-      </van-cell-group>
+      <van-form>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="registerForm.account" :placeholder="$t('register.accountPrompt')"/>
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="handelMail" :placeholder="$t('register.emailPrompt')" />
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field class="change-style" v-model="registerForm.code" :placeholder="$t('register.verificationCode')">
+            <template #button>
+              <CoutDown ref="countDown">
+                <template #showValue="{ value, active }">
+                  <van-button size="mini" plain hairline :class="['code-btn', active?'active-btn':'no-active-btn']" @click="startCountDown">
+                    {{ !active ? $t('register.getVerificationCode'):$t('register.resend') }}{{ !active ? "" : "(" + value + ")" }}
+                  </van-button>
+                </template>
+              </CoutDown>
+            </template>
+          </van-field>
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field
+              class="change-style"
+              v-model="registerForm.password"
+              type="password"
+              :placeholder="$t('register.password')"
+              :right-icon="showOnePass?'eye-o':'closed-eye'"
+              @click-right-icon="showOnePass=!showOnePass"
+              autocomplete="off"
+          />
+        </van-cell-group>
+        <van-cell-group inset>
+          <van-field
+              class="change-style"
+              v-model="registerForm.confirmPassword"
+              type="password"
+              :placeholder="$t('register.confirmPassword')"
+              :right-icon="showTwoPass?'eye-o':'closed-eye'"
+              @click-right-icon="showTwoPass=!showTwoPass"
+              autocomplete="off"
+          />
+        </van-cell-group>
+      </van-form>
       <van-cell-group inset :style="{marginTop:'40px'}">
         <van-button  :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}">{{$t('register.createAccount')}}</van-button>
       </van-cell-group>
@@ -57,14 +65,11 @@ import {ref, reactive, watch, computed} from 'vue'
 import Dialog from "@/common/components/base/Dialog.vue"
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
 import {ProcessMail} from "@/common/utils/stringHandling.js"
+import CoutDown from "@/common/components/base/CountDown.vue";
 
-let showDialog = ref(true)
+let showDialog = ref(false)
 let dialogInfo = ref("注册成功，即将跳转至登陆页面")
 let dialogStatus = ref(false)
-let imgsrc = computed(() => {
-  return dialogStatus.value?'/src/assets/common/svg/operate_suc.png':'/src/assets/common/svg/operate_fai.png'
-})
-let isActive = ref(false)
 let registerForm = reactive({
   account: '',
   mail:'',
@@ -79,35 +84,14 @@ let handelMail = computed(() => {
     return ''
   }
 })
+let countDown = ref(null)
+
 // 控制眼睛
 let showOnePass = ref(false)
 let showTwoPass = ref(false)
 
-let startTime = ref(0)  // 开始时间
-let nowTime = ref(0)    // 循环记录当前时间
-let endTime = ref(0)    //倒计时结束时间
-let countDown = ref(59) //倒计时总数
-let showSecond = ref(1) //表显
-let precision = ref(30) //精度
 const startCountDown = () => {
-  if (isActive.value) {
-    return
-  }
-  isActive.value = true
-  startTime.value = new Date().getTime()
-  endTime.value = startTime.value + countDown*1000
-  showSecond.value = countDown.value
-  let timer = setInterval(() => {
-    nowTime.value = new Date().getTime()
-    console.log( showSecond.value, "             ", (nowTime.value - startTime.value)%1000)
-    if ((nowTime.value - startTime.value)%1000 > (1000 - precision.value) || (nowTime.value - startTime.value)%1000 < precision.value) {
-      showSecond.value = countDown.value - Math.round((nowTime.value - startTime.value)/1000)
-    }
-    if (showSecond.value<=1) {
-      isActive.value = false
-      clearInterval(timer)
-    }
-  }, 20)
+  countDown.value.startCountDown()
 }
 </script>
 
