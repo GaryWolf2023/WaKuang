@@ -178,6 +178,7 @@ const buttonLoading = ref(false)
 const handleClick = (actionType) => {
   switch (actionType) {
     case "change-lang":
+      console.log(1111)
       showLang.value = true
       break;
     case "quit-safe":
