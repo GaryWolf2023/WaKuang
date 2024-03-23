@@ -4,6 +4,7 @@
           :class="{'input-focused': isFocused, 'input-error': isError}"
           @blur="isFocused=false"
           @focus="isFocused=true"
+          v-bind="$attrs"
       >
       </van-field>
       <p class="error-msg">{{props.errorMsg}}</p>
@@ -23,11 +24,13 @@ watch(isFocused, (val) => {
     isError.value = false
   }
 })
-watch(() => props.errorMsg, (val) => {
+watch(
+    () => props.errorMsg,
+    (val) => {
   if (!!val) {
     isError.value = true
   }
-})
+},{immediate:true})
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +44,7 @@ watch(() => props.errorMsg, (val) => {
   :deep(.input-focused) {
     border-bottom: 1px solid #66E0FF;
     border-radius: 6px;
-    box-shadow: 0 0 0px 2px #66E0FF;
+    box-shadow: 0 0 0 2px #66E0FF;
   }
   :deep(.input-error) {
     border: 1px solid #F84747;
