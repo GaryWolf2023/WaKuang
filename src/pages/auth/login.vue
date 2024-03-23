@@ -8,6 +8,7 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
+      <re-input :error-msg="'11111111111'"></re-input>
       <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
         <van-field
@@ -48,6 +49,7 @@ import {ref, reactive, computed} from 'vue'
 
 import LangBar from "@/common/components/base/LangBar.vue";
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import ReInput from "@/common/components/base/ReInput.vue";
 import {useAppStore} from "@/pinia/modules/app.js"
 
 const appStore = useAppStore()
