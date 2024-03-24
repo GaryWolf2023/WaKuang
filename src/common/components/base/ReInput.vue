@@ -12,16 +12,24 @@
 </template>
 
 <script setup>
-import {ref, watch} from 'vue'
+import {ref, watch, reactive} from 'vue'
+
 let isFocused = ref(false)
 let isError = ref(false)
+
 const props = defineProps({
   status: String,
   errorMsg: String
 })
+const emit = defineEmits(['update:errorMsg'])
+const status = reactive({
+  danger: '',
+  primary: ''
+})
 watch(isFocused, (val) => {
   if (val) {
     isError.value = false
+    emit('update:errorMsg', '')
   }
 })
 watch(
@@ -31,9 +39,11 @@ watch(
     isError.value = true
   }
 },{immediate:true})
+
 </script>
 
 <style lang="scss" scoped>
+@import '@/style/var';
 .input-out-box {
   height: 60px;
   :deep(van-cell) {
@@ -42,19 +52,19 @@ watch(
     border: 0;
   }
   :deep(.input-focused) {
-    border-bottom: 1px solid #66E0FF;
+    border-bottom: 1px solid $primary-color;
     border-radius: 6px;
-    box-shadow: 0 0 0 2px #66E0FF;
+    box-shadow: 0 0 0 2px $primary-color;
   }
   :deep(.input-error) {
-    border: 1px solid #F84747;
-    box-shadow: 0 0 1px 2px #F84747;
+    border: 1px solid $error-color;
+    box-shadow: 0 0 1px 2px $error-color;
     border-radius: 6px;
   }
   .error-msg {
     height: 14px;
     font-size: 12px;
-    color: #F84747;
+    color: $error-color;
   }
 }
 </style>

@@ -8,7 +8,8 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
-       <re-input :error-msg="'11111111111'"></re-input>
+       <re-input v-model:errorMsg="msg" type="password"></re-input>
+       <re-input v-model:errorMsg="msg" type="password"></re-input>
       <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
         <van-field
@@ -54,6 +55,11 @@ import {useAppStore} from "@/pinia/modules/app.js"
 
 const appStore = useAppStore()
 const router = useRouter()
+
+
+let msg = ref('123176253')
+
+
 
 let lang = computed(()=>{
   return appStore.language
