@@ -2,12 +2,13 @@
     <Layout_imp :hid-tab-bar="true" :hidBack=true>
       <template v-slot:header>
         <div class="reset-header" @click="showDrawer=true">
-          中文
+          {{showLang}}
         </div>
       </template>
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
+      <re-input :error-msg="'11111111111'"></re-input>
       <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
         <van-field
@@ -44,12 +45,30 @@
 
 <script setup>
 import {useRouter} from 'vue-router'
-import {ref, reactive} from 'vue'
+import {ref, reactive, computed} from 'vue'
 
 import LangBar from "@/common/components/base/LangBar.vue";
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import ReInput from "@/common/components/base/ReInput.vue";
+import {useAppStore} from "@/pinia/modules/app.js"
 
+const appStore = useAppStore()
 const router = useRouter()
+
+let lang = computed(()=>{
+  return appStore.language
+})
+
+let showLang = computed(() => {
+  let list = appStore.languageList
+  let str = ''
+  list.forEach((it) => {
+    if (it.mark === lang.value) {
+      str = it.name
+    }
+  })
+  return str
+})
 
 let showDrawer = ref(false)
 const handleCloseLang = (val) => {
