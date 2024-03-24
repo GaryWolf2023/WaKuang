@@ -17,7 +17,7 @@
       <span class="small-prompt">{{$t('user.feedback.uploadLimit')}}</span>
     </div>
     <div :class="['page-box', 'box-bc', 'img-box']" >
-      <van-uploader v-model="fileList" multiple />
+      <van-uploader v-model="fileList" multiple :max-count="6" :before-read="beforeRead" :after-read="afterRead" @delete="deleteFile"/>
     </div>
     <van-cell-group inset :style="{margin:'25px 21px 0'}">
       <van-button class="van-button-confirm" :style="{width:'100%', fontSize:'16px', backgroundColor:'rgb(102, 224, 255)'}" @click="uploadFeedback">
@@ -28,13 +28,45 @@
 </template>
 
 <script setup>
-import {ref,reactive} from 'vue'
+import {ref,reactive, watch} from 'vue'
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
+import {updateFile, deleteFileFormOrigin} from "@/api/file.js";
 
 let fileList = ref([])
 let content = ref('')
+let fileTypeList = ['image/png', 'image/jpg','image/jpeg', 'image/webp', 'image/gif']
 
 const uploadFeedback = () => {}
+
+watch(fileList, (val) => {
+  console.log(fileList.value)
+  if (fileList.value.length > 0) {
+  }
+},{immediate:true})
+
+// 删除图片时使用
+const deleteFile = (file, index) => {
+  console.log(file)
+  console.log(index)
+}
+// 上传前置处理，可做类型限制
+const beforeRead = (file) => {
+  return true;
+  // if (!fileTypeList.includes(file.type)) {
+  //   return false;
+  // }
+}
+
+// 选择图片式触发，在这里写上传函数
+const afterRead = (file) => {
+  file.status = 'uploading';
+  file.message = '上传中...';
+  // 这里直接上传到指定服务器，后续对完接口来进行更改
+  setTimeout(() => {
+    file.status = 'success';
+    file.message = '上传成功';
+  }, 1000);
+};
 </script>
 
 <style lang="scss" scoped>

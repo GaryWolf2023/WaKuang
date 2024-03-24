@@ -1,8 +1,9 @@
 <template>
     <div class="input-out-box">
       <van-field
+          v-model="data"
           :class="{'input-focused': isFocused, 'input-error': isError}"
-          @blur="isFocused=false"
+          @blur="onBlur"
           @focus="isFocused=true"
           v-bind="$attrs"
       >
@@ -12,20 +13,34 @@
 </template>
 
 <script setup>
+// 还需新增校验，直接使用正则表达式校验
 import {ref, watch, reactive} from 'vue'
 
 let isFocused = ref(false)
 let isError = ref(false)
 
+const data = defineModel()
+
 const props = defineProps({
   status: String,
-  errorMsg: String
+  errorMsg: String,
+  modelValue: String,
+  regex: String
 })
-const emit = defineEmits(['update:errorMsg'])
+const emit = defineEmits(['update:errorMsg', 'update:modelValue'])
+
 const status = reactive({
   danger: '',
   primary: ''
 })
+const onBlur = () => {
+  isFocused.value = false
+  if (!!props.regex) {
+    let reg = new RegExp("e");
+    let isTrue = reg.test(data)
+    emit('update:errorMsg', '格式错误')
+  }
+}
 watch(isFocused, (val) => {
   if (val) {
     isError.value = false
