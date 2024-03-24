@@ -1,5 +1,5 @@
 <template>
-  <Layout_imp :title="$t('mining.platformName')" :hidBack="true">
+  <Layout_imp :title="$t('common.app.platformName')" :hidBack="true">
     <div class="data-item coin-data">
       <div class="item-header">
         <svg width="4.000000" height="14.000000" viewBox="0 0 4 14" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -119,9 +119,12 @@ const incomeInfo = ref({
     margin-top: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 16px;
     text-align: center;
     .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       span {
         font-size: 13px;
         color: #616161;

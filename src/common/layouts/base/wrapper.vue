@@ -7,7 +7,7 @@
         </div>
       </slot>
     </header>
-    <div class="content">
+    <div class="content-area">
       <slot></slot>
     </div>
     <footer ref="footer" class="footer" :class="footerFix ? 'footer_fixed' : 'footer_normal' ">
@@ -69,7 +69,7 @@ onMounted(() => {
       z-index: 2;
     }
   }
-  .content {
+  .content-area {
     margin: 10px;
     position: relative;
   }

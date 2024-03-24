@@ -1,6 +1,5 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import {useUserStore} from '@/pinia/modules/user.js'
-import {login} from '@/api/user.js'
 
 // Profile
 const Profile = () => import("../pages/profile/profile.vue")
@@ -42,7 +41,6 @@ const router = createRouter({
                 { path: "/user/team", meta: { layout: "detail" }, component: UserTeam },
                 { path: "/user/income", meta: { layout: "detail" }, component: UserIncome },
                 { path: "/user/machine", meta: { layout: "detail" }, component: UserMachine },
-                { path: "/user/feedback", meta: { layout: "detail" }, component: () => import('@/pages/user/feedback.vue') },
 
                 // Auth
                 { path: "/login", meta: { layout: "auth" }, component: () => import('../pages/auth/login.vue') },

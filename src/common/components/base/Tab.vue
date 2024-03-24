@@ -57,11 +57,17 @@ const handleClick = (index) => {
   padding: 12px 18px;
   font-size: 14px;
   position: relative;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .tab-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     .tab-item {
+      white-space: nowrap;
       &_active {
         color: $primary-color;
       }

@@ -1,6 +1,14 @@
 {
   "confirm": "确认",
   "common": {
+    "app": {
+      "platformName": "APSC",
+      "lang": "中文"
+    },
+    "status": {
+      "success": "成功",
+      "fail": "失敗"
+    },
     "tabs": {
       "title1": "挖矿",
       "title2": "数据",

@@ -8,7 +8,7 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
-      <re-input :error-msg="'11111111111'"></re-input>
+       <re-input :error-msg="'11111111111'"></re-input>
       <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
         <van-field
@@ -64,7 +64,7 @@ let showLang = computed(() => {
   let str = ''
   list.forEach((it) => {
     if (it.mark === lang.value) {
-      str = it.name
+      str = it.short
     }
   })
   return str

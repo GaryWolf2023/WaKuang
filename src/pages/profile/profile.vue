@@ -16,7 +16,7 @@
               <p style="font-size: 16px;font-weight: 700">{{ coin.balance }}</p>
             </div>
             <div class="item-footer">
-              <button class="button in" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">
+              <button class="button in" v-if="coin.name !== 'JUP'" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">
                 {{ coin.type !== 'HMT' ? $t('my.rollIn') : $t('my.buy') }}
               </button>
               <button class="button out" @click="handleAction(coin.type !== 'HMT' ? 'roll_out' : 'sell', coin)">
@@ -298,9 +298,10 @@ const handleExchange = (exchangeType) => {
 .button {
   border: none;
   border-radius: 4px;
-  padding: 3px 18px;
+  padding: 5px 18px;
   font-size: 12px;
   color: #FFFFFF;
+  width: 105px;
 
   &.in {
     background-color: #003568;
@@ -357,5 +358,9 @@ const handleExchange = (exchangeType) => {
     transform: translateX(-50%) translateY(-50%);
   }
 }
+
+
+// animation
+
 
 </style>

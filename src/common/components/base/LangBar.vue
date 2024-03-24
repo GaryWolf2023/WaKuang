@@ -44,7 +44,6 @@ const actions = ref(handleActions(store.curLang))
 
 
 watch( () => props.showDrawer, (value) => {
-  console.log(value)
   show.value = value
 }, {immediate: true})
 

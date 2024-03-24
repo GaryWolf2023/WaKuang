@@ -16,7 +16,7 @@ function loadLocaleMessages() {
 export const i18n = createI18n({
     globalInjection: true,
     legacy: false,
-    locale: getStorageItem("cur-lang") ? getStorageItem("cur-lang") : "en_GB",
+    locale: getStorageItem("cur_lang") || 'zh_HK',
     fallbackLocale: "",
     messages: loadLocaleMessages(),
     silentTranslationWarn: true,

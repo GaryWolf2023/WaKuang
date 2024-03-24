@@ -1,6 +1,10 @@
 {
   "confirm": "confirm",
   "common": {
+    "app": {
+      "platformName": "APSC",
+      "lang": "EN"
+    },
     "status": {
       "success": "success",
       "fail": "fail"
@@ -59,7 +63,7 @@
     "miningData": "Mining machine data",
     "hashRate": "Hash rate value",
     "login": "login",
-    "buyMining": "Buy Mining Machine",
+    "buyMining": "Purchase Mining Machines",
     "buyNow": "Buy Now",
     "buy": "buy",
     "pay": "pay",
@@ -67,38 +71,38 @@
     "HMT": "HMT",
     "payPassword": "Please enter the fund password",
     "paySuccess": "Payment successful",
-    "errPassword": "Wrong fund password",
+    "errPassword": "Incorrect fund password",
     "tokenData": "TokenData",
-    "HMTPrice": "HMTPrice",
-    "pledgeTheWholeNetwork": "Pledge the whole network",
+    "HMTPrice": "HMT price",
+    "pledgeTheWholeNetwork": "Whole network pledge",
     "destructionQuantity": "Destruction Quantity",
     "poolData": "Pool Data",
-    "networkComputingPower": "Computing power of the whole network",
-    "currentPool": "Current mining pool",
-    "cumulativeRelease": "cumulative release",
+    "networkComputingPower": "Whole network Computational power",
+    "currentPool": "Current Mining pool",
+    "cumulativeRelease": "Cumulative release",
     "myEarnings": "My Earnings",
-    "yesterday": "yesterday",
-    "today": "today",
-    "accumulativeTotal": "accumulative"
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "accumulativeTotal": "Cumulative"
   },
   "my": {
-    "wallet": "my wallet",
+    "wallet": "My wallet",
     "USTD": "USTD",
     "HMT": "HMT",
     "JUP": "JUP",
     "myMiner": "My mining machine",
-    "myEarning": "My Earning",
-    "myTeam": "my team",
+    "myEarning": "My earning",
+    "myTeam": "My team",
     "changePassword": "Change password",
-    "fundCode": "FundCode",
+    "fundCode": "Fund password",
     "systemLanguage": "System Language",
     "feedback": "Feedback",
     "safeWithdrawing": "Safe exit",
-    "rollIn": "roll in",
-    "rollOut": "rollout",
-    "buy": "buy",
-    "sell": "sell",
-    "quitSafe": "Quit safely"
+    "rollIn": "Transfer in",
+    "rollOut": "Transfer out",
+    "buy": "Buy",
+    "sell": "Sell",
+    "quitSafe": "Logging out"
   },
   "user": {
     "machine": {

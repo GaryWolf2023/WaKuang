@@ -16,7 +16,7 @@
             <circle id="椭圆形备份 3" cx="49.000000" cy="2.000000" r="2.000000" fill="#66E0FF" fill-opacity="1.000000"/>
             <rect id="矩形备份" width="44.000000" height="1.000000" transform="matrix(-1 0 0 1 44 1.53305)" fill="url(#paint_linear_1_318_0)" fill-opacity="1.000000"/>
           </svg>
-          <p style="text-align:center;font-size: 18px;color: #66E0FF;margin: 0 24px;">{{ $t('mining.miningData') }}</p>
+          <p style="text-align:center;color: #66E0FF;margin: 0 24px;" :style="curLang === 'en_GB' ? {fontSize: '16px'}: {fontSize: '18px'} ">{{ $t('mining.miningData').toUpperCase() }}</p>
           <svg width="51.000000" height="4.000000" viewBox="0 0 51 4" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
               <linearGradient id="paint_linear_1_317_0" x1="7.000000" y1="2.033051" x2="51.000000" y2="2.033051" gradientUnits="userSpaceOnUse">
@@ -32,8 +32,8 @@
       </div>
       <div class="buy-machine">
         <img src="../../assets/pages/mining_banner.png" alt="buy machine" style="font-size: 8px" />
-        <div class="buy-entrance">
-          <p>{{ $t('mining.buyMining') }}</p>
+        <div class="buy-entrance" :style="curLang === 'en_GB' ? {fontSize: '16px', width: '42%', lineHeight:'22px'}: {fontSize: '22px'} ">
+          <p>{{ $t('mining.buyMining').toUpperCase() }}</p>
           <button class="buy-button" @click="$router.push('/mining/buy')">{{ $t('mining.buyNow') }}
           </button>
         </div>
@@ -47,11 +47,13 @@ import CusSwiper from "@/common/components/animation/CusSwiper.vue";
 
 import { ref } from 'vue'
 import {useI18n} from "vue-i18n";
+import {useAppStore} from "@/pinia/modules/app.js";
 
-
+const app = useAppStore()
 const { t } =  useI18n()
-const title = t("mining.platformName")
+const title = t("common.app.platformName")
 const machineList = ref([])
+const curLang = app.curLang
 
 machineList.value = [
   {name: "Bitmain", expiredTime: "6 Day 4 Hour"},
@@ -130,7 +132,6 @@ machineList.value = [
     left: 28.5px;
     p{
       color: #FFFFFF;
-      font-size: 22px;
       font-weight: 500;
       line-height: 100%;
     }
