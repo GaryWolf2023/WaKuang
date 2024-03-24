@@ -1,18 +1,26 @@
 import { defineStore } from 'pinia'
+import {getStorageItem} from "@/common/utils/storage.js";
 export const useUserStore = defineStore('user',{
    state: () => ({
-      userinfo: {},
-      token: '123123123123123123123',
+      userInfo: {},
+      token: 'Hello',
    }),
    actions: {
       async login(form) {
         //  let res = await getToken(form)
         //  console.log(res)
       },
+      async getUserInfo() {
+      },
+      setToken(state) {
+      }
    },
    getters: {
-      userinfo(state) {
-         return state.userinfo
+      authUserInfo(state) {
+         return state.userInfo
+      },
+      authToken(state) {
+         return state.token
       }
    }
 })

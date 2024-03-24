@@ -54,14 +54,18 @@ const router = createRouter({
 })
 
 // 应该有一个请求先获取token然后每次页面跳转会向后端请求然后对比token，token为空或者不同则需要重新返回登陆页面
-router.beforeEach((to, from) => {
+router.beforeEach((to, from, next) => {
     const userStore = useUserStore()
-    if (to.name !== '/login') {
+    if (to.path === "/login" || to.path === "/register") {
+        console.log(to)
+        next()
+    }else {
         if(!userStore.token) {
-            return false
+            next('/login')
+        }else {
+            next()
         }
     }
-    return true;
 });
 
 export default router;

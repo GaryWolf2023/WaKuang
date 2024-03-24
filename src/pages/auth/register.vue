@@ -68,18 +68,8 @@ import {ProcessMail} from "@/common/utils/stringHandling.js"
 import CoutDown from "@/common/components/base/CountDown.vue";
 
 const router = useRouter()
-watch(showDialog, (v) => {
-  if (v) {
-    const timer = setTimeout(() => {
-      showDialog.value = false
-      clearTimeout(timer)
-    },2000)
-  }
-})
 
-let isActive = ref(false)
 let showDialog = ref(false)
-let dialogInfo = ref("注册成功，即将跳转至登陆页面")
 let dialogStatus = ref(false)
 let registerForm = reactive({
   account: '',
