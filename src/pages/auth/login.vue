@@ -8,7 +8,7 @@
       <div class="login-top">
         <img src="/public/logo/logo.png" alt="" class="login-logo">
       </div>
-       <re-input :error-msg="'11111111111'"></re-input>
+       <re-input v-model:errorMsg="msg" type="password" v-model="testData"></re-input>
       <van-form @failed="onFailed">
       <van-cell-group inset :style="{margin:'0 21px 14px'}">
         <van-field
@@ -45,7 +45,7 @@
 
 <script setup>
 import {useRouter} from 'vue-router'
-import {ref, reactive, computed} from 'vue'
+import {ref, reactive, computed, watch} from 'vue'
 
 import LangBar from "@/common/components/base/LangBar.vue";
 import Layout_imp from "@/common/layouts/common/layout_imp.vue";
@@ -54,6 +54,13 @@ import {useAppStore} from "@/pinia/modules/app.js"
 
 const appStore = useAppStore()
 const router = useRouter()
+
+
+let msg = ref('123176253')
+let testData = ref('')
+watch(testData, (val) => {
+  console.log(val)
+},{immediate:true})
 
 let lang = computed(()=>{
   return appStore.language
