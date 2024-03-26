@@ -36,9 +36,11 @@ const status = reactive({
 const onBlur = () => {
   isFocused.value = false
   if (!!props.regex) {
-    let reg = new RegExp("e");
-    let isTrue = reg.test(data)
-    emit('update:errorMsg', '格式错误')
+    let reg = new RegExp(props.regex, 'g');
+    let isTrue = reg.test(props.modelValue)
+    if (!isTrue) {
+      emit('update:errorMsg', '格式错误')
+    }
   }
 }
 watch(isFocused, (val) => {
