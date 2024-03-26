@@ -13,10 +13,14 @@
           <div class="item">
             <div class="item-header">
               <p>{{ coin.name }}</p>
-              <p style="font-size: 16px;font-weight: 700">{{ coin.balance }}</p>
+              <p style="font-size: 16px;font-weight: 700;flex:1;text-align: right;margin-right: 20px">
+                {{ coin.balance }}
+              </p>
+              <span class="arrow" ref="arrows" @click="openAction(index)"></span>
             </div>
-            <div class="item-footer">
-              <button class="button in" v-if="coin.name !== 'JUP'" @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">
+            <div class="item-footer" :class="coin.active ? 'active-item-footer' : 'inactive-item-footer'">
+              <button class="button in" v-if="coin.name !== 'JUP'"
+                      @click="handleAction(coin.type !== 'HMT' ? 'roll_in' : 'buy', coin)">
                 {{ coin.type !== 'HMT' ? $t('my.rollIn') : $t('my.buy') }}
               </button>
               <button class="button out" @click="handleAction(coin.type !== 'HMT' ? 'roll_out' : 'sell', coin)">
@@ -164,16 +168,27 @@ const menuList = computed(() => [
   {title: t("my.feedback"), path: "/feedBack", icon: icon7},
   {title: t("my.quitSafe"), action: "quit-safe", icon: icon8},
 ])
-const coinList = [
-  {name: "USDT", balance: "1000.00 ", type: "COIN"},
-  {name: "HMT", balance: "1800.00", type: "HMT"},
-  {name: "JUP", balance: "5600.00", type: "COIN"}
+const coinList = ref([])
+coinList.value = [
+  {active: false, name: "USDT", balance: "1000.00 ", type: "COIN"},
+  {active: false, name: "HMT", balance: "1800.00", type: "HMT"},
+  {active: false, name: "JUP", balance: "5600.00", type: "COIN"}
 ]
 const showDialog = ref(false)
 const showLang = ref(false)
 const type = ref("")
 const coinInfo = ref(null)
 const buttonLoading = ref(false)
+const arrows = ref([])
+
+const openAction = (index) => {
+  if (arrows.value[index].className.indexOf(' arrow-active') !== -1) {
+    arrows.value[index].className = "arrow"
+  } else {
+    arrows.value[index].className = "arrow arrow-active "
+  }
+  coinList.value[index].active = ! coinList.value[index].active
+}
 
 const handleClick = (actionType) => {
   switch (actionType) {
@@ -197,7 +212,6 @@ const title = computed(() => {
       return t('my.sell');
   }
 })
-
 
 // ele
 const handleAction = (actionType, coin) => {
@@ -273,6 +287,16 @@ const handleExchange = (exchangeType) => {
           display: flex;
           justify-content: right;
           gap: 12px;
+          transition: height 0.5s ease;
+          overflow: hidden;
+        }
+
+        .active-item-footer {
+          height: 26px;
+        }
+
+        .inactive-item-footer {
+          height: 0;
         }
       }
     }
@@ -361,6 +385,72 @@ const handleExchange = (exchangeType) => {
 
 
 // animation
+.arrow {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s ease;
+  text-align: left;
+  transform: rotate(45deg);
+  float: right;
 
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.4s ease;
+  }
+
+  &:after {
+    position: absolute;
+    transform: rotate(90deg);
+    top: -5px;
+    left: 5px;
+  }
+}
+
+.item-header {
+  .arrow {
+    transform: rotate(0);
+    left: 0;
+    top: 0;
+
+    &:before, &:after {
+      background-color: transparent;
+      width: 2px;
+      height: 10px;
+      display: inline-block;
+      position: absolute;
+      border-bottom: 12px solid #616161;
+      top: 0;
+      left: 0;
+      transform: rotate(0);
+    }
+
+    &:before {
+      transform: rotate(-135deg);
+    }
+
+    &:after {
+      transform: rotate(135deg);
+    }
+
+    &-active {
+      transform: translate(0, -6px) rotate(0);
+
+      &:before {
+        transform: rotate(-45deg)
+      }
+
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
 
 </style>

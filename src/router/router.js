@@ -1,6 +1,9 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import {useUserStore} from '@/pinia/modules/user.js'
 
+// Common
+const NotFound = () => import("../pages/common/NoFoundPage.vue")
+
 // Profile
 const Profile = () => import("../pages/profile/profile.vue")
 const Feedback = () => import("../pages/profile/feedback.vue")
@@ -9,7 +12,7 @@ const Feedback = () => import("../pages/profile/feedback.vue")
 const Mining = () => import("../pages/mining/index.vue")
 const MiningBuy = () => import("../pages/mining/buy.vue")
 
-
+// Data
 const Data = () => import("../pages/data/index.vue")
 
 // User
@@ -48,6 +51,10 @@ const router = createRouter({
                 { path: "/retrievePassword", meta: { layout: "auth" }, component: () => import('../pages/auth/retrievePassword.vue') }
             ]
         },
+        {
+            path: '/:pathMatch(.*)*',
+            component: NotFound
+        }
     ],
 })
 
